@@ -1108,6 +1108,54 @@ button.av-est:hover{outline:2px solid rgba(0,0,0,.15);}
 .gv-tip{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);background:rgba(0,0,0,.65);color:#fff;font-size:12.5px;padding:5px 12px;border-radius:99px;pointer-events:none}
 .gv-cuerpo.zoom .gv-tip{display:none}
 @media (max-width:700px){.gv-cuerpo{padding:0 8px 10px}.gv-cab a span{display:none}}
+/* v37 · descargar fotos: imagen, PDF y varias en un solo PDF */
+.tb-p-guia h5>span{flex:1}
+.gm-bajar{display:inline-flex;align-items:center;gap:5px;height:28px;padding:0 10px;border-radius:7px;border:1px solid #b9cde4;background:#fff;color:#1e4f86;font:700 11.5px inherit;font-family:inherit;text-transform:none;letter-spacing:0;cursor:pointer;white-space:nowrap}
+.gm-bajar:hover,.gm-bajar:focus-visible{background:#1e4f86;color:#fff;border-color:#1e4f86}
+.v-acc{display:flex;gap:8px;flex:none}
+.gv-cab button svg,.gv-cab a svg{width:16px;height:16px}
+.gv-cab button:disabled{opacity:.5;cursor:wait}
+.gv-cab .v-elegir{background:#1e4f86}
+.v-msg{margin:0 14px 8px;padding:7px 12px;border-radius:8px;background:rgba(22,163,74,.18);color:#bbf7d0;font-size:13px}
+.v-msg.mal{background:rgba(220,38,38,.2);color:#fecaca}
+.el-rej{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));grid-auto-rows:max-content;gap:12px;padding:6px 14px 14px;align-content:start}
+.el-f{background:#171b22;border:2px solid #2a313c;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.el-f.on{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.25)}
+.el-img{position:relative;display:block;width:100%;aspect-ratio:3/4;border:0;padding:0;background:#dfe5ec;cursor:pointer}
+.el-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.el-f:not(.on) .el-img img{opacity:.55;filter:grayscale(.4)}
+.el-car{position:absolute;inset:0;display:grid;place-items:center;font-size:12.5px;color:#7a8696;padding:10px;text-align:center}
+.el-car:not(.err)::before{content:"";width:22px;height:22px;border:3px solid #b9c8da;border-top-color:#1e4f86;border-radius:50%;animation:gira .8s linear infinite}
+.el-car.err{color:#b91c1c}
+.el-chk{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:8px;border:2px solid #fff;background:rgba(0,0,0,.45);color:#fff;display:grid;place-items:center;font-weight:900;font-size:16px;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.el-f.on .el-chk{background:#3b82f6;border-color:#3b82f6}
+.el-n{position:absolute;top:8px;left:8px;min-width:24px;height:24px;padding:0 6px;border-radius:99px;background:rgba(0,0,0,.65);color:#fff;font:700 12px/24px inherit;font-family:inherit;text-align:center}
+.el-pie{padding:8px 10px 4px;color:#e5e9ee;min-width:0}
+.el-pie b{display:block;font-size:13px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.el-pie small{display:block;color:#9aa5b2;font-size:12px}
+.el-una{display:flex;gap:6px;padding:6px 10px 10px}
+.el-una a,.el-una button,.el-una .off{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:5px;height:32px;border-radius:8px;border:1px solid #3a4452;background:#222833;color:#e5e9ee;font:600 12.5px inherit;font-family:inherit;text-decoration:none;cursor:pointer}
+.el-una .off{opacity:.45;cursor:default}
+.el-una button:disabled{opacity:.5;cursor:wait}
+.el-una svg{width:14px;height:14px}
+.el-una a:hover,.el-una button:hover:not(:disabled){background:#2f3744}
+.el-pie-bar{display:flex;align-items:center;gap:12px;padding:12px 14px calc(12px + env(safe-area-inset-bottom));border-top:1px solid #232a34;background:#0f1217}
+.el-msg{flex:1;min-width:0;color:#9aa5b2;font-size:12.5px}
+.el-msg.mal{color:#fca5a5}
+.el-pdf{flex:none;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:10px;border:0;background:#E1001A;color:#fff;font:700 14.5px inherit;font-family:inherit;cursor:pointer;box-shadow:0 4px 14px rgba(225,0,26,.35)}
+.el-pdf:disabled{background:#3a4250;box-shadow:none;cursor:not-allowed;color:#aab3bf}
+.el-pdf svg{width:18px;height:18px}
+@media (max-width:700px){
+  .gv-cab{flex-wrap:wrap;row-gap:8px}
+  .gv-cab .tx{flex:1 1 calc(100% - 52px);order:1}.gv-cab .gv-x{order:2}
+  .v-acc{order:3;width:100%}.v-acc>*{flex:1;justify-content:center}
+  .gv-cab .v-acc a span,.gv-cab .v-acc button span{display:inline}
+  .el-rej{grid-template-columns:repeat(2,1fr);gap:9px;padding:4px 10px 10px}
+  .el-img{aspect-ratio:4/5}.el-una{padding:4px 8px 8px;gap:5px}.el-pie{padding:7px 8px 2px}
+  .el-pie-bar{flex-direction:column;align-items:stretch;gap:8px}
+  .el-pdf{justify-content:center}
+}
+
 .tb-p-inc{background:#fff7e8;border:1px solid #f1d5a3;border-left:4px solid #d97706;border-radius:9px;padding:8px 10px;margin:0 0 10px}
 .tb-p-inc h4{margin:0 0 5px;font-size:11.5px;color:#9a5b00;text-transform:uppercase;letter-spacing:.3px}
 .tb-p-inc .it+.it{border-top:1px dashed #ecd2a2;margin-top:7px;padding-top:7px}
@@ -2056,6 +2104,18 @@ header .user-badge button{white-space:nowrap}
 </div>
 
 <script>
+/* Mudanza a la cuenta de GitHub de la empresa (2026-11): la dirección vieja manda en el enlace
+   (#traslado=…) los ajustes que solo vivían en ese navegador. Se guardan una sola vez, sin pisar
+   nada que ya exista aquí, y el enlace se limpia. */
+(function(){try{
+  var h=location.hash;if(h.indexOf('#traslado=')!==0)return;
+  var PERMITIDAS=['prove_flota_extra','prove_gps_url','av_vista','av_auto'];
+  var d=JSON.parse(decodeURIComponent(escape(atob(h.slice(10).replace(/-/g,'+').replace(/_/g,'/')))));
+  Object.keys(d||{}).forEach(function(k){
+    if(PERMITIDAS.indexOf(k)>=0&&typeof d[k]==='string'&&d[k].length<500000&&localStorage.getItem(k)===null)localStorage.setItem(k,d[k]);});
+  history.replaceState(null,'',location.pathname+location.search);
+}catch(e){}})();
+
 /* ===== Modelo ===== */
 const COLS=[
  {k:"TURNO",w:48},{k:"FECHA",w:60},{k:"TIPO",w:52},{k:"ZONA",w:54},{k:"DISTRITO",w:74},
@@ -3202,7 +3262,7 @@ const NUBE_URL_KEY='prove_nube_url';
    "Configurar servidor" y ese valor manda sobre este. */
 /* Sello de version: sirve para saber, sin adivinar, que archivo esta corriendo
    realmente el navegador (GitHub Pages y el cache del movil suelen servir uno viejo). */
-const APP_VERSION='2026-11-09 · planificador-36';
+const APP_VERSION='2026-11-15 · planificador-38';
 const NUBE_URL_DEFECTO='https://script.google.com/macros/s/AKfycbzPfXZFs9GVEfBfDERzGGzxO8OgoRaMOHIg_QO9jOpMP31BkvENFenAP9rubgh_GPcW4Q/exec';
 const SESION_KEY='prove_sesion';
 let sesion={usuario:'',clave:'',rol:'',nombre:''};
@@ -3309,13 +3369,14 @@ function fetchNube(url,opt,ms){
   /*  Causa raíz del "HTTP 404": este navegador tenía guardada otra URL (mal copiada o de
       una implementación vieja) y esa URL tapaba a la oficial para siempre. Si la guardada
       da 404, se prueba la oficial; si responde, queda guardada y no vuelve a pasar.   */
-  return intento(url).then(async res=>{
+  return intento(url).then(res=>seguirMudanza(res,url,opt,intento)).then(async res=>{
     if(!NUBE_URL_DEFECTO||url===NUBE_URL_DEFECTO)return res;
     /* también si el script respondió como si la petición llegara vacía (la firma de doGet) */
     let vacia=false;
     if(res.status!==404){try{vacia=(await res.clone().text()).indexOf('sin autenticaci')>=0;}catch(e){}}
     if(res.status!==404&&!vacia)return res;
-    return intento(NUBE_URL_DEFECTO).then(r2=>{
+    return intento(NUBE_URL_DEFECTO).then(r2=>seguirMudanza(r2,NUBE_URL_DEFECTO,opt,intento)).then(r2=>{
+      if(r2.__mudo)return r2;
       if(r2.ok){
         try{localStorage.setItem(NUBE_URL_KEY,NUBE_URL_DEFECTO);}catch(e){}
         ['nubeUrl','loginUrl'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=NUBE_URL_DEFECTO;});
@@ -3324,6 +3385,22 @@ function fetchNube(url,opt,ms){
       return r2;
     });
   });
+}
+/* v38 · Mudanza a la cuenta de la empresa: la dirección vieja contesta {mudado:'<URL nueva>'}.
+   Se guarda la nueva (la usan todas las apps de este navegador: Planificador, Mi Ruta,
+   Seguimiento, Registro de errores, Carga en patio y Buscador) y la misma petición se repite allá.
+   Solo se acepta una URL de Apps Script, y un solo salto por petición. */
+const URL_NUBE_VALIDA=/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]{20,}\/exec$/;
+async function seguirMudanza(res,url,opt,intento){
+  if(!res||!res.ok)return res;
+  let d=null;try{d=JSON.parse(await res.clone().text());}catch(e){return res;}
+  const nueva=d&&d.mudado;
+  if(!nueva||!URL_NUBE_VALIDA.test(nueva)||nueva===url)return res;
+  try{localStorage.setItem(NUBE_URL_KEY,nueva);localStorage.setItem('prove_nube_mudado',nueva);}catch(e){}
+  ['nubeUrl','loginUrl'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=nueva;});
+  console.info('Las plataformas se mudaron a la cuenta de la empresa: se usa la dirección nueva.');
+  const r2=await intento(nueva);try{r2.__mudo=true;}catch(e){}
+  return r2;
 }
 async function nubeGuardar(reg){
   const url=nubeUrl();if(!url)return {ok:false,motivo:'sin-url'};
@@ -6265,10 +6342,10 @@ if (typeof module !== 'undefined') module.exports = IA;
   }
   function gMini(x){const u=gUrl.get(x.id),er=gErr.get(x.id);
     return `<span class="gm-img">${u?`<img src="${u}" alt="Guía firmada"><span class="gm-zoom" aria-hidden="true">⤢</span>`:`<span class="gm-car">${er?'No se pudo abrir · toca para reintentar':'Cargando…'}</span>`}</span>`+`<span class="gm-h"><b>${esc(gHora(x.ts))}</b>${x.usuario?' · '+esc(tit(x.usuario)):''}</span>`;}
-  function gRepintar(id){document.querySelectorAll('[data-gm="'+id+'"]').forEach(b=>{b.innerHTML=gMini(JSON.parse(b.dataset.info));});if(gvCtx&&gvCtx.lista[gvCtx.i].id===id)gvPintar();}
+  function gRepintar(id){document.querySelectorAll('[data-gm="'+id+'"]').forEach(b=>{b.innerHTML=gMini(JSON.parse(b.dataset.info));});if(gvCtx&&(gvCtx.modo==='elegir'?gvCtx.lista.some(x=>x.id===id):gvCtx.lista[gvCtx.i].id===id))gvPintar();}
   function guiaHtml(f){
     const l=fotosLista([f]);
-    if(l.length)return `<div class="tb-p-guia"><h5>📷 Guía firmada${l.length>1?' · '+l.length+' fotos':''}</h5><div class="gm-rej${l.length===1?' uno':''}">${l.map((x,i)=>`<button class="gm" data-gm="${escAttr(x.id)}" data-gfac="${escAttr(f.p.id)}" data-gi="${i}" data-info="${escAttr(JSON.stringify(x))}" title="Ver la foto">${gMini(x)}</button>`).join('')}</div></div>`;
+    if(l.length)return `<div class="tb-p-guia"><h5><span>📷 Guía firmada${l.length>1?' · '+l.length+' fotos':''}</span><button class="gm-bajar" data-gbajar="${escAttr(f.p.id)}" title="Descargar como imagen o PDF">⬇ ${l.length>1?'Descargar · PDF':'Descargar'}</button></h5><div class="gm-rej${l.length===1?' uno':''}">${l.map((x,i)=>`<button class="gm" data-gm="${escAttr(x.id)}" data-gfac="${escAttr(f.p.id)}" data-gi="${i}" data-info="${escAttr(JSON.stringify(x))}" title="Ver la foto">${gMini(x)}</button>`).join('')}</div></div>`;
     if(faltaFoto(f))return `<div class="tb-p-guia falta"><h5>📷 Falta la foto de la guía</h5><p>Si el celular del chofer estaba sin señal, llega sola cuando la recupere.</p></div>`;
     return '';
   }
@@ -6310,35 +6387,207 @@ if (typeof module !== 'undefined') module.exports = IA;
     };
     m.classList.add('show');
   }
-  function gAbrir(lista,i,titulo){if(!lista.length)return;gvCtx={lista,i,titulo};gvPintar();document.getElementById('gVisor').classList.add('on');}
-  function gCerrar(){gvCtx=null;const v=document.getElementById('gVisor');if(v){v.classList.remove('on');v.innerHTML='';}}
-  function gvPintar(){
-    let v=document.getElementById('gVisor');
+  /* ---------- v·PDF: fotos de la guía a PDF, sin librerías y sin internet ----------
+     Cada foto va en una hoja A4 (vertical u horizontal según la foto), centrada y sin
+     recortar, con un pie de dos líneas: cliente/facturas y cuándo y quién la tomó.
+     La foto JPEG entra tal cual (no se vuelve a comprimir): el PDF pesa lo mismo que
+     las fotos. Solo si la foto viene girada por EXIF, en CMYK o en otro formato, se
+     redibuja una vez en un lienzo para que en el PDF se vea igual que en pantalla. */
+  const GuiaPDF=(()=>{
+    const A4=[595.28,841.89],MARGEN=28,PIE=34;
+    const CP={0x20AC:0x80,0x201A:0x82,0x192:0x83,0x201E:0x84,0x2026:0x85,0x2020:0x86,0x2021:0x87,0x2C6:0x88,0x2030:0x89,0x160:0x8A,0x2039:0x8B,0x152:0x8C,0x17D:0x8E,
+      0x2018:0x91,0x2019:0x92,0x201C:0x93,0x201D:0x94,0x2022:0x95,0x2013:0x96,0x2014:0x97,0x2DC:0x98,0x2122:0x99,0x161:0x9A,0x203A:0x9B,0x153:0x9C,0x17E:0x9E,0x178:0x9F};
+    /* texto → bytes WinAnsi escapados para un string de PDF */
+    function pdfTxt(s){let o='';for(const ch of String(s)){let c=ch.codePointAt(0);if(c>0xFF||(c>=0x80&&c<0xA0))c=CP[c]||0x3F;if(c<0x20)c=0x20;
+      const k=String.fromCharCode(c);o+=(k==='('||k===')'||k==='\\')?'\\'+k:k;}return o;}
+    let lienzoMed=null;
+    function ancho(s,pt,negrita){lienzoMed=lienzoMed||document.createElement('canvas').getContext('2d');
+      lienzoMed.font=(negrita?'bold ':'')+'100px Helvetica, Arial, sans-serif';return lienzoMed.measureText(String(s)).width*pt/100;}
+    function cortar(s,pt,neg,max){s=String(s);if(ancho(s,pt,neg)<=max)return s;while(s.length>1&&ancho(s+'…',pt,neg)>max)s=s.slice(0,-1);return s.trimEnd()+'…';}
+    /* datos de la cabecera JPEG: tamaño, canales y giro EXIF */
+    function leerJpeg(u8){
+      if(u8[0]!==0xFF||u8[1]!==0xD8)return null;
+      let i=2,info=null,giro=1;
+      while(i+4<u8.length){
+        if(u8[i]!==0xFF){i++;continue;}
+        const m=u8[i+1];if(m===0xFF){i++;continue;}
+        if(m===0xD8||m===0x01||(m>=0xD0&&m<=0xD7)){i+=2;continue;}
+        const len=(u8[i+2]<<8)|u8[i+3];
+        if(m===0xE1&&u8[i+4]===0x45&&u8[i+5]===0x78&&u8[i+6]===0x69&&u8[i+7]===0x66){   // APP1 Exif
+          try{const b=i+10,le=u8[b]===0x49,r16=p=>le?u8[p]|(u8[p+1]<<8):(u8[p]<<8)|u8[p+1],r32=p=>le?(u8[p]|(u8[p+1]<<8)|(u8[p+2]<<16)|(u8[p+3]<<24))>>>0:((u8[p]<<24)|(u8[p+1]<<16)|(u8[p+2]<<8)|u8[p+3])>>>0;
+            const ifd=b+r32(b+4),n=r16(ifd);for(let k=0;k<n;k++){const e=ifd+2+k*12;if(r16(e)===0x0112){giro=r16(e+8);break;}}}catch(e){}
+        }
+        if(m>=0xC0&&m<=0xCF&&m!==0xC4&&m!==0xC8&&m!==0xCC){
+          info={alto:(u8[i+5]<<8)|u8[i+6],ancho:(u8[i+7]<<8)|u8[i+8],canales:u8[i+9]};
+        }
+        if(m===0xDA)break;
+        i+=2+len;
+      }
+      return info?{...info,giro}:null;
+    }
+    async function aJpegLienzo(url){
+      const img=await new Promise((ok,mal)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=()=>mal(new Error('la foto no se pudo leer'));im.src=url;});
+      const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;
+      const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0);
+      const b=await new Promise(ok=>c.toBlob(ok,'image/jpeg',0.92));if(!b)throw new Error('la foto no se pudo convertir');
+      return {u8:new Uint8Array(await b.arrayBuffer()),ancho:c.width,alto:c.height,canales:3};
+    }
+    async function imagen(url){
+      const u8=new Uint8Array(await (await fetch(url)).arrayBuffer());
+      const j=leerJpeg(u8);
+      if(j&&j.giro===1&&(j.canales===3||j.canales===1)&&j.ancho&&j.alto)return {u8,ancho:j.ancho,alto:j.alto,canales:j.canales};
+      return aJpegLienzo(url);
+    }
+    /* fotos: [{url, titulo, detalle}] → Blob PDF (una hoja por foto) */
+    async function armar(fotos,tituloDoc){
+      const imgs=[];for(const f of fotos)imgs.push(await imagen(f.url));
+      const te=new TextEncoder(),partes=[],ofs=[];let pos=0;
+      const poner=x=>{const b=typeof x==='string'?latin(x):x;partes.push(b);pos+=b.length;};
+      const latin=s=>{const b=new Uint8Array(s.length);for(let i=0;i<s.length;i++)b[i]=s.charCodeAt(i)&0xFF;return b;};
+      const obj=(n,cuerpo)=>{ofs[n]=pos;poner(n+' 0 obj\n');if(Array.isArray(cuerpo))cuerpo.forEach(poner);else poner(cuerpo);poner('\nendobj\n');};
+      const N=fotos.length,paginas=[];for(let k=0;k<N;k++)paginas.push(5+k*3);
+      poner('%PDF-1.4\n%\xE2\xE3\xCF\xD3\n');
+      obj(1,'<< /Type /Catalog /Pages 2 0 R >>');
+      obj(2,'<< /Type /Pages /Kids ['+paginas.map(p=>p+' 0 R').join(' ')+'] /Count '+N+' >>');
+      obj(3,'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>');
+      obj(4,'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>');
+      fotos.forEach((f,k)=>{
+        const im=imgs[k],horiz=im.ancho>im.alto,W=horiz?A4[1]:A4[0],H=horiz?A4[0]:A4[1];
+        const aw=W-2*MARGEN,ah=H-2*MARGEN-PIE,es=Math.min(aw/im.ancho,ah/im.alto);
+        const dw=im.ancho*es,dh=im.alto*es,dx=(W-dw)/2,dy=MARGEN+PIE+(ah-dh)/2;
+        const t1=cortar(f.titulo||'',10,true,aw),t2=cortar(f.detalle||'',8.5,false,aw);
+        const cont='q '+dw.toFixed(2)+' 0 0 '+dh.toFixed(2)+' '+dx.toFixed(2)+' '+dy.toFixed(2)+' cm /Im0 Do Q\n'+
+          'q 0.85 0.86 0.88 RG 0.6 w '+MARGEN+' '+(MARGEN+PIE-8)+' m '+(W-MARGEN)+' '+(MARGEN+PIE-8)+' l S Q\n'+
+          'BT /F2 10 Tf 0.12 0.14 0.17 rg '+MARGEN+' '+(MARGEN+12)+' Td ('+pdfTxt(t1)+') Tj ET\n'+
+          'BT /F1 8.5 Tf 0.36 0.39 0.44 rg '+MARGEN+' '+MARGEN+' Td ('+pdfTxt(t2)+') Tj ET';
+        const pg=paginas[k];
+        obj(pg,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+W.toFixed(2)+' '+H.toFixed(2)+'] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> /XObject << /Im0 '+(pg+2)+' 0 R >> >> /Contents '+(pg+1)+' 0 R >>');
+        obj(pg+1,'<< /Length '+cont.length+' >>\nstream\n'+cont+'\nendstream');
+        obj(pg+2,['<< /Type /XObject /Subtype /Image /Width '+im.ancho+' /Height '+im.alto+' /ColorSpace '+(im.canales===1?'/DeviceGray':'/DeviceRGB')+
+          ' /BitsPerComponent 8 /Filter /DCTDecode /Length '+im.u8.length+' >>\nstream\n',im.u8,'\nendstream']);
+      });
+      const info=5+N*3;
+      obj(info,'<< /Title ('+pdfTxt(tituloDoc||'Guía firmada')+') /Creator (Planificador de ruta) /Producer (Planificador de ruta) >>');
+      const xref=pos;let x='xref\n0 '+(info+1)+'\n0000000000 65535 f \n';
+      for(let n=1;n<=info;n++)x+=String(ofs[n]).padStart(10,'0')+' 00000 n \n';
+      poner(x+'trailer\n<< /Size '+(info+1)+' /Root 1 0 R /Info '+info+' 0 R >>\nstartxref\n'+xref+'\n%%EOF\n');
+      void te;
+      return new Blob(partes,{type:'application/pdf'});
+    }
+    function bajar(blob,nombre){
+      const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=nombre;a.rel='noopener';
+      document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000);
+    }
+    /* nombre de archivo seguro: sin tildes ni símbolos raros */
+    function nombre(s){return String(s||'guia').normalize('NFD').replace(/\p{Mn}/gu,'').replace(/[^A-Za-z0-9._-]+/g,'_').replace(/_+/g,'_').replace(/^_|_$/g,'').slice(0,90)||'guia';}
+    function fechaHora(ts){return ts?new Date(+ts).toLocaleString('es-PE',{timeZone:'America/Lima',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).replace(',',''):'';}
+    return {armar,bajar,nombre,fechaHora,leerJpeg};
+  })();
+  /* v37: descargar cada foto como imagen o PDF, y elegir varias para un solo PDF */
+  function gvEl(){let v=document.getElementById('gVisor');
     if(!v){v=document.createElement('div');v.id='gVisor';v.className='gv';v.setAttribute('role','dialog');v.setAttribute('aria-label','Foto de la guía firmada');document.body.appendChild(v);}
-    const c=gvCtx;if(!c)return;const x=c.lista[c.i],u=gUrl.get(x.id),er=gErr.get(x.id);if(!u&&!er)gPedir(x.id);
-    v.innerHTML=`<div class="gv-cab"><div class="tx"><b>${esc(c.titulo)} · ${esc(x.facs.join(' + '))}</b><small>${c.lista.length>1?'Foto '+(c.i+1)+' de '+c.lista.length+' · ':'Guía firmada · '}${x.ts?'tomada a las '+esc(gHora(x.ts)):''}${x.usuario?' por '+esc(tit(x.usuario)):''}</small></div>
-      ${u?`<a href="${u}" download="${escAttr(gNom.get(x.id)||'guia.jpg')}">⬇ <span>Descargar</span></a>`:''}<button class="gv-x" id="gvX" aria-label="Cerrar">×</button></div>
-      <div class="gv-cuerpo${c.zoom?' zoom':''}">${u?`<img src="${u}" alt="Guía firmada" id="gvImg"><span class="gv-tip">Clic en la foto para verla en tamaño real</span>`:`<p class="gv-msg">${er?esc('No se pudo abrir la foto: '+er):'Cargando la foto…'}</p>`}
-      ${c.lista.length>1?'<button class="gv-nav ant" id="gvA" aria-label="Anterior">‹</button><button class="gv-nav sig" id="gvS" aria-label="Siguiente">›</button>':''}</div>`;
-    document.getElementById('gvX').onclick=gCerrar;
-    const gi=document.getElementById('gvImg');
-    if(gi)gi.onclick=e=>{e.stopPropagation();const cu=v.querySelector('.gv-cuerpo'),r=gi.getBoundingClientRect(),fx=(e.clientX-r.left)/r.width,fy=(e.clientY-r.top)/r.height;
-      c.zoom=!c.zoom;cu.classList.toggle('zoom',c.zoom);
-      if(c.zoom)requestAnimationFrame(()=>{cu.scrollLeft=gi.offsetWidth*fx-cu.clientWidth/2;cu.scrollTop=gi.offsetHeight*fy-cu.clientHeight/2;});};
-    const mv=d=>{c.i=(c.i+d+c.lista.length)%c.lista.length;c.zoom=false;gvPintar();};
-    if(c.lista.length>1){document.getElementById('gvA').onclick=()=>mv(-1);document.getElementById('gvS').onclick=()=>mv(1);}
-    v.querySelector('.gv-cuerpo').onclick=e=>{if(e.target.classList.contains('gv-cuerpo'))gCerrar();};
+    return v;}
+  function gCerrar(){gvCtx=null;const v=document.getElementById('gVisor');if(v){v.classList.remove('on');v.innerHTML='';}}
+  const gIC_PDF='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>';
+  const gIC_IMG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>';
+  const gIC_VARIAS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="m14.5 17.5 2 2 4-4.5"/></svg>';
+  function gAbrir(lista,i,titulo,modo){if(!lista.length)return;gvCtx={lista,i,titulo,modo:modo||'una',sel:new Set(lista.map(x=>x.id)),msg:'',ocupado:false};gvPintar();document.getElementById('gVisor').classList.add('on');}
+  /* espera a que la foto esté en memoria (la pide si hace falta) */
+  async function gFotoLista(id){
+  if(gUrl.has(id))return gUrl.get(id);
+  gPedir(id);const t0=Date.now();
+  while(Date.now()-t0<120000){
+    if(gUrl.has(id))return gUrl.get(id);
+    if(!gCurso.has(id)&&gErr.has(id))throw new Error(gErr.get(id));
+    await new Promise(r=>setTimeout(r,150));
+  }
+  throw new Error('la foto tardó demasiado en llegar');
+  }
+  function gFotoBase(x){return String(gNom.get(x.id)||('guia_'+x.facs.join('-'))).replace(/\.[a-z0-9]{2,5}$/i,'');}
+  function gPieFoto(v,x){
+  const n=v.lista.length,k=v.lista.indexOf(x)+1,fh=GuiaPDF.fechaHora(x.ts);
+  return {titulo:v.titulo+' · '+(x.facs.length>1?'Facturas ':'Factura ')+x.facs.join(' + '),
+          detalle:[n>1?'Foto '+k+' de '+n:'Guía firmada',fh?'tomada el '+fh:'',x.usuario?'por '+tit(x.usuario):''].filter(Boolean).join(' · ')};
+  }
+  async function gBajarPdf(fotos,nombre){
+  const v=gvCtx;if(!v||v.ocupado)return;
+  v.ocupado=true;v.msg=fotos.length>1?'Armando el PDF con '+fotos.length+' fotos…':'Armando el PDF…';gvPintar();
+  try{
+    const items=[];for(const x of fotos){const url=await gFotoLista(x.id);items.push({url,...gPieFoto(v,x)});}
+    const blob=await GuiaPDF.armar(items,v.titulo+' · '+[...new Set(fotos.flatMap(x=>x.facs))].join(' + '));
+    GuiaPDF.bajar(blob,GuiaPDF.nombre(nombre)+'.pdf');
+    v.msg='✓ PDF descargado'+(fotos.length>1?' · '+fotos.length+' fotos en un solo archivo':'');
+  }catch(e){v.msg='No se pudo armar el PDF: '+e.message;}
+  finally{v.ocupado=false;if(gvCtx===v){gvPintar();setTimeout(()=>{if(gvCtx===v&&!v.ocupado&&/^✓/.test(v.msg)){v.msg='';gvPintar();}},4000);}}
+  }
+  function gPdfUna(x){gBajarPdf([x],gFotoBase(x));}
+  function gPdfVarias(){const v=gvCtx;if(!v)return;const el=v.lista.filter(x=>v.sel.has(x.id));if(!el.length)return;
+  if(el.length===1){gPdfUna(el[0]);return;}
+  gBajarPdf(el,v.titulo+'_'+[...new Set(el.flatMap(x=>x.facs))].join('-')+'_'+el.length+'_fotos');}
+  function gvPintar(){
+  const v=gvCtx;if(!v)return;
+  if(v.modo==='elegir'){gvElegir();return;}
+  const x=v.lista[v.i],url=gUrl.get(x.id),err=gErr.get(x.id);
+  if(!url&&!err)gPedir(x.id);
+  gvEl().innerHTML=`<div class="gv-cab"><div class="tx"><b>${esc(v.titulo)} · ${esc(x.facs.join(' + '))}</b><small>${v.lista.length>1?'Foto '+(v.i+1)+' de '+v.lista.length+' · ':'Guía firmada · '}${x.ts?'tomada a las '+gHora(x.ts):''}${x.usuario?' por '+esc(tit(x.usuario)):''}</small></div>
+    <div class="v-acc">${url?`<a href="${url}" download="${escAttr(gNom.get(x.id)||'guia.jpg')}" title="Descargar esta foto como imagen">${gIC_IMG}<span>Imagen</span></a>
+    <button id="gv_vPdf" title="Descargar esta foto en PDF"${v.ocupado?' disabled':''}>${gIC_PDF}<span>PDF</span></button>`:''}
+    ${v.lista.length>1?`<button id="gv_vElegir" class="v-elegir" title="Elegir varias fotos para un solo PDF">${gIC_VARIAS}<span>Elegir fotos</span></button>`:''}</div>
+    <button class="gv-x" id="gvX" aria-label="Cerrar">×</button></div>
+    ${v.msg?`<div class="v-msg${/^No se/.test(v.msg)?' mal':''}" role="status">${esc(v.msg)}</div>`:''}
+    <div class="gv-cuerpo${v.zoom?' zoom':''}">${url?`<img src="${url}" alt="Guía firmada" id="gvImg"><span class="gv-tip">Clic en la foto para verla en tamaño real</span>`:`<p class="gv-msg">${err?esc('No se pudo abrir la foto: '+err):'Cargando la foto…'}</p>`}
+    ${v.lista.length>1?`<button class="gv-nav ant" id="gvA" aria-label="Foto anterior">‹</button><button class="gv-nav sig" id="gvS" aria-label="Foto siguiente">›</button>`:''}</div>`;
+  document.getElementById('gvX').onclick=gCerrar;
+  if(document.getElementById('gv_vPdf'))document.getElementById('gv_vPdf').onclick=()=>gPdfUna(x);
+  if(document.getElementById('gv_vElegir'))document.getElementById('gv_vElegir').onclick=()=>{v.modo='elegir';v.zoom=false;v.msg='';gvPintar();};
+  /* ampliar al tamaño real para leer la letra chica de la guía (y volver a ajustar) */
+  if(document.getElementById('gvImg'))document.getElementById('gvImg').onclick=e=>{e.stopPropagation();const c=gvEl().querySelector('.gv-cuerpo'),img=document.getElementById('gvImg');
+    const r=img.getBoundingClientRect(),fx=(e.clientX-r.left)/r.width,fy=(e.clientY-r.top)/r.height;
+    v.zoom=!v.zoom;c.classList.toggle('zoom',v.zoom);
+    if(v.zoom)requestAnimationFrame(()=>{c.scrollLeft=img.offsetWidth*fx-c.clientWidth/2;c.scrollTop=img.offsetHeight*fy-c.clientHeight/2;});};
+  const mover=d=>{v.i=(v.i+d+v.lista.length)%v.lista.length;v.zoom=false;gvPintar();};
+  if(document.getElementById('gvA')){document.getElementById('gvA').onclick=()=>mover(-1);document.getElementById('gvS').onclick=()=>mover(1);}
+  gvEl().querySelector('.gv-cuerpo').onclick=e=>{if(e.target.classList.contains('gv-cuerpo'))gCerrar();};
+  gvEl().onkeydown=null;
+  }
+  /* elegir fotos: tocar una foto la marca o desmarca; abajo, un solo PDF con las marcadas */
+  function gvElegir(){
+  const v=gvCtx,n=v.sel.size,tot=v.lista.length;
+  v.lista.forEach(x=>{if(!gUrl.has(x.id)&&!gErr.has(x.id))gPedir(x.id);});
+  const prev=gvEl().querySelector('.el-rej'),scroll=prev?prev.scrollTop:0;
+  gvEl().innerHTML=`<div class="gv-cab"><div class="tx"><b>Descargar fotos · ${esc(v.titulo)}</b><small>${n} de ${tot} elegida${tot===1?'':'s'} · toca una foto para marcarla o quitarla</small></div>
+    <div class="v-acc">${tot>1?`<button id="gv_elTodas">${n===tot?'Quitar todas':'Marcar todas'}</button>`:''}${v.volver!==false?`<button id="gv_elVolver">‹ <span>Volver</span></button>`:''}</div>
+    <button class="gv-x" id="gvX" aria-label="Cerrar">×</button></div>
+    <div class="el-rej">${v.lista.map((x,k)=>{const url=gUrl.get(x.id),err=gErr.get(x.id),on=v.sel.has(x.id);
+      return `<div class="el-f${on?' on':''}">
+        <button class="el-img" data-elx="${escAttr(x.id)}" aria-pressed="${on}" aria-label="${on?'Quitar':'Marcar'} la foto ${k+1}">
+          ${url?`<img src="${url}" alt="">`:`<span class="el-car${err?' err':''}">${err?'No se pudo abrir · toca para reintentar':''}</span>`}
+          <span class="el-chk" aria-hidden="true">${on?'✓':''}</span><span class="el-n">${k+1}</span></button>
+        <div class="el-pie"><b>${esc(x.facs.join(' + '))}</b><small>${x.ts?esc(GuiaPDF.fechaHora(x.ts)):''}${x.usuario?' · '+esc(tit(x.usuario)):''}</small></div>
+        <div class="el-una">${url?`<a href="${url}" download="${escAttr(gNom.get(x.id)||'guia.jpg')}">${gIC_IMG}Imagen</a>`:'<span class="off">'+gIC_IMG+'Imagen</span>'}<button data-elpdf="${escAttr(x.id)}"${v.ocupado?' disabled':''}>${gIC_PDF}PDF</button></div>
+      </div>`;}).join('')}</div>
+    <div class="el-pie-bar">${v.msg?`<span class="el-msg${/^No se/.test(v.msg)?' mal':''}" role="status">${esc(v.msg)}</span>`:`<span class="el-msg">Se juntan en un solo PDF, en este orden. Para una sola foto usa sus botones Imagen o PDF.</span>`}
+      <button id="gv_elPdf" class="el-pdf"${!n||v.ocupado?' disabled':''}>${gIC_PDF}<span>${v.ocupado?'Armando…':n>1?'Descargar '+n+' fotos en 1 PDF':n===1?'Descargar 1 foto en PDF':'Elige al menos una foto'}</span></button></div>`;
+  const rej=gvEl().querySelector('.el-rej');rej.scrollTop=scroll;
+  document.getElementById('gvX').onclick=gCerrar;
+  if(document.getElementById('gv_elVolver'))document.getElementById('gv_elVolver').onclick=()=>{v.modo='una';v.msg='';gvPintar();};
+  if(document.getElementById('gv_elTodas'))document.getElementById('gv_elTodas').onclick=()=>{if(v.sel.size===tot)v.sel.clear();else v.lista.forEach(x=>v.sel.add(x.id));gvPintar();};
+  gvEl().querySelectorAll('[data-elx]').forEach(b=>b.onclick=()=>{const id=b.dataset.elx;
+    if(gErr.has(id)&&!gUrl.has(id)){gPedir(id);gvPintar();return;}
+    if(v.sel.has(id))v.sel.delete(id);else v.sel.add(id);if(!/^Armando/.test(v.msg))v.msg='';gvPintar();});
+  gvEl().querySelectorAll('[data-elpdf]').forEach(b=>b.onclick=()=>{const x=v.lista.find(o=>o.id===b.dataset.elpdf);if(x)gPdfUna(x);});
+  document.getElementById('gv_elPdf').onclick=gPdfVarias;
   }
   document.addEventListener('keydown',e=>{if(!gvCtx)return;
     if(e.key==='Escape'){e.stopImmediatePropagation();gCerrar();}
-    else if(gvCtx.lista.length>1&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){gvCtx.i=(gvCtx.i+(e.key==='ArrowRight'?1:-1)+gvCtx.lista.length)%gvCtx.lista.length;gvPintar();}},true);
+    else if(gvCtx.modo!=='elegir'&&gvCtx.lista.length>1&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){gvCtx.i=(gvCtx.i+(e.key==='ArrowRight'?1:-1)+gvCtx.lista.length)%gvCtx.lista.length;gvPintar();}},true);
   function facKey(p){return String(p.FACTURA||'').trim().toUpperCase()||('ID'+p.id);}
   function progClave(){const d=progFechaActual();return d?claveProg(fechaISO(d),turnoActual):'';}
   function hm(t){return t?String(t).slice(11,16):'';}
   function minEntre(a,b){const x=Date.parse(String(a).replace(' ','T')+'-05:00'),y=b?Date.parse(String(b).replace(' ','T')+'-05:00'):Date.now();return isNaN(x)||isNaN(y)?null:Math.round((y-x)/60000);}
   function tit(s){return String(s||'').toLowerCase().replace(/(^|[\s\/.(-])([a-záéíóúñ])/g,(m,a,b)=>a+b.toUpperCase()).replace(/\b(Sac|Eirl|Srl|Sa|Saa)\b/g,m=>m.toUpperCase());}
   /* Mi Ruta está publicada en su propio repositorio de GitHub Pages */
-  const URL_MI_RUTA='https://provesupervisor.github.io/MiRuta/';
+  const URL_MI_RUTA='https://distribucionpepf-provefabrica.github.io/MiRuta/';
   function urlApp(){return URL_MI_RUTA;}
 
   async function pedirNube(cuerpo){
@@ -6649,6 +6898,7 @@ if (typeof module !== 'undefined') module.exports = IA;
     pn.querySelectorAll('[data-gm]').forEach(b=>{gPedir(b.dataset.gm);b.onclick=()=>{const id=b.dataset.gm;
       if(gErr.has(id)){gPedir(id);gRepintar(id);return;}
       const f=filas.find(x=>String(x.p.id)===b.dataset.gfac);gAbrir(fotosLista([f]),+b.dataset.gi,tit(f.p.CLIENTES));};});
+    pn.querySelectorAll('[data-gbajar]').forEach(b=>b.onclick=()=>{const f=filas.find(x=>String(x.p.id)===b.dataset.gbajar);if(f)gAbrir(fotosLista([f]),0,tit(f.p.CLIENTES),'elegir');});
     document.querySelectorAll('.tb-tile.elegido').forEach(x=>x.classList.remove('elegido'));
     const sel=tbSel.sin!=null?document.querySelector(`[data-tbsin="${tbSel.sin}"]`):document.querySelector(`[data-tbtile="${tbSel.uid}|${tbSel.i}"]`);
     if(sel)sel.classList.add('elegido');
