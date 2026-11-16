@@ -2115,6 +2115,11 @@ header .user-badge button{white-space:nowrap}
     if(PERMITIDAS.indexOf(k)>=0&&typeof d[k]==='string'&&d[k].length<500000&&localStorage.getItem(k)===null)localStorage.setItem(k,d[k]);});
   history.replaceState(null,'',location.pathname+location.search);
 }catch(e){}})();
+/* Direcciones del Apps Script en la cuenta de la empresa (2026-11): si este navegador tenía
+   guardada la dirección vieja (cuenta personal), se cambia por la nueva una sola vez. */
+(function(){try{var V={'https://script.google.com/macros/s/AKfycbzPfXZFs9GVEfBfDERzGGzxO8OgoRaMOHIg_QO9jOpMP31BkvENFenAP9rubgh_GPcW4Q/exec':'https://script.google.com/macros/s/AKfycbzh72H0j_OxcQAltoltMq3TY8MYlzxYCgCyKor37VX1k7X1KAbsLZHLuamN3CntccwElA/exec','https://script.google.com/macros/s/AKfycbyNTe_wL3a2GKse5qBjRBuU4zpemFDrkvzI56ysXazt77L0wAKxEg5ykyl-bBO5DW2L/exec':'https://script.google.com/macros/s/AKfycbx8E2Ag_ZBNkyEbMytrKxOcFfUtwbKx9vW-dz3SPwwivvG6HrZg5yaSlJqkIxL9HykR/exec'};
+  ['prove_nube_url','prove_gps_url','prove_nube_mudado','ubg_datos_url'].forEach(function(k){var v=localStorage.getItem(k);if(v&&V[v.trim()])localStorage.setItem(k,V[v.trim()]);});
+}catch(e){}})();
 
 /* ===== Modelo ===== */
 const COLS=[
@@ -3262,8 +3267,8 @@ const NUBE_URL_KEY='prove_nube_url';
    "Configurar servidor" y ese valor manda sobre este. */
 /* Sello de version: sirve para saber, sin adivinar, que archivo esta corriendo
    realmente el navegador (GitHub Pages y el cache del movil suelen servir uno viejo). */
-const APP_VERSION='2026-11-15 · planificador-38';
-const NUBE_URL_DEFECTO='https://script.google.com/macros/s/AKfycbzPfXZFs9GVEfBfDERzGGzxO8OgoRaMOHIg_QO9jOpMP31BkvENFenAP9rubgh_GPcW4Q/exec';
+const APP_VERSION='2026-11-16 · planificador-39';
+const NUBE_URL_DEFECTO='https://script.google.com/macros/s/AKfycbzh72H0j_OxcQAltoltMq3TY8MYlzxYCgCyKor37VX1k7X1KAbsLZHLuamN3CntccwElA/exec';
 const SESION_KEY='prove_sesion';
 let sesion={usuario:'',clave:'',rol:'',nombre:''};
 /* ===== Clave de una programacion: fecha + turno =====
