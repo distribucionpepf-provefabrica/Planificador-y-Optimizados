@@ -3375,7 +3375,7 @@ const NUBE_URL_KEY='prove_nube_url';
    "Configurar servidor" y ese valor manda sobre este. */
 /* Sello de version: sirve para saber, sin adivinar, que archivo esta corriendo
    realmente el navegador (GitHub Pages y el cache del movil suelen servir uno viejo). */
-const APP_VERSION='2026-11-22 · planificador-43';
+const APP_VERSION='2026-11-22 · planificador-44';
 const NUBE_URL_DEFECTO='https://script.google.com/macros/s/AKfycbzh72H0j_OxcQAltoltMq3TY8MYlzxYCgCyKor37VX1k7X1KAbsLZHLuamN3CntccwElA/exec';
 const SESION_KEY='prove_sesion';
 let sesion={usuario:'',clave:'',rol:'',nombre:''};
@@ -4258,35 +4258,60 @@ function ubcAplicar(d){
   UBC.lista=d.lista||[];UBC.resumen=d.resumen||null;UBC.meta=d.meta||5;UBC.radio=d.radio||100;UBC.t=Date.now();UBC.error='';
   UBC.mapa={};UBC.lista.forEach(x=>{if(x.lat!=null&&isFinite(x.lat)&&isFinite(x.lng))UBC.mapa[x.clave]=x;});
 }
-function cargarUbicaciones(forzar){
+/* v44: huella de lo que se ve, para saber si algo cambió de verdad */
+function ubFirma(){return JSON.stringify(UBC.resumen||{})+'|'+UBC.lista.map(x=>x.clave+':'+x.n+':'+x.estado+':'+(x.cambio?1:0)+':'+x.ultimo+':'+x.lat+':'+x.lng+':'+(x.registros?x.registros.length:'')).join(',');}
+function ubFirmaSel(){const x=UBC.lista.find(y=>y.clave===UBC.sel);return x?JSON.stringify(x):'';}
+function cargarUbicaciones(forzar,silencioso){
   if(UBC.sinServidor||!sesion||!sesion.usuario)return Promise.resolve(false);
   if(!forzar&&UBC.t&&Date.now()-UBC.t<5*60e3)return Promise.resolve(true);
   if(UBC.cargando)return UBC.cargando;
+  const antes=silencioso?ubFirma():'',antesSel=silencioso?ubFirmaSel():'';
   UBC.cargando=nubeAccionUsuario({accion:'ubicacionesClientes'}).then(d=>{
     ubcAplicar(d);
     const n=completarMiRuta();
     if(n&&typeof rutaGeom!=='undefined')rutaGeom={};
-    if(ubcVista('gps'))renderGps();
+    if(ubcVista('gps')&&(!silencioso||n))renderGps();
     if(ubcVista('mapa')&&n)renderMapa();
-    if(ubcVista('ubic'))renderUbic();
+    if(ubcVista('ubic')){
+      /* actualización automática: si nada cambió no se toca la pantalla; si cambió, se repinta sin perder
+         el filtro, la búsqueda, el cliente abierto ni la posición de la lista; el mapa solo si cambió ese cliente */
+      if(!silencioso)renderUbic();
+      else if(ubFirma()!==antes)renderUbicSuave(ubFirmaSel()!==antesSel);
+    }
     pintarCntUbic();
     return true;
   }).catch(e=>{
     if(/desconocida/i.test(e.message))UBC.sinServidor=true;         // Apps Script anterior a la v14.1
-    UBC.error=e.message;if(ubcVista('ubic'))renderUbic();return false;
+    UBC.error=e.message;if(ubcVista('ubic')&&(!silencioso||!UBC.t))renderUbic();return false;
   }).finally(()=>{UBC.cargando=null;pintarHoraUbic();});
   return UBC.cargando;
 }
+/* v44: con la pestaña Ubicaciones a la vista, se actualiza sola cada minuto (y al volver a la ventana) */
+const UB_CADA=60e3;
+setInterval(()=>{if(!document.hidden&&ubcVista('ubic')&&!UBC.sinServidor&&Date.now()-UBC.t>=UB_CADA-2000)cargarUbicaciones(true,true);},15e3);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&ubcVista('ubic')&&UBC.t&&Date.now()-UBC.t>=UB_CADA)cargarUbicaciones(true,true);});
+function renderUbicSuave(detalle){
+  const cont=document.getElementById('ubicCont');
+  if(!cont||!document.getElementById('ubTabla')){renderUbic();return;}
+  renderUbicStats();
+  const sm=cont.querySelector('.ub-lista .ub-h small'),r=UBC.resumen||{registros:0};
+  if(sm)sm.textContent=`Se confirma con ${UBC.meta} registros en días distintos, a menos de ${UBC.radio} m entre sí · ${r.registros} registros guardados`;
+  const tw=cont.querySelector('.ub-tw'),sc=tw?tw.scrollTop:0,ws=window.scrollY;
+  renderUbicTabla();
+  const tw2=cont.querySelector('.ub-tw');if(tw2)tw2.scrollTop=sc;
+  if(detalle)renderUbicDet();
+  window.scrollTo(0,ws);
+}
 
 /* ---------- pestaña Ubicaciones ---------- */
-const UBC_MOT={'mismo día':'Mismo día (ya contó uno)',lejos:'Lejos del punto',fuera:'Fuera del punto confirmado','otro punto':'En el otro punto (posible cambio)','antes de reiniciar':'Antes de reiniciar','antes de corregir':'Antes de la corrección',impreciso:'GPS impreciso (más de 100 m)',vieja:'Posición vieja (más de 2 min)'};
+const UBC_MOT={'mismo día':'Mismo día (ya contó uno)',lejos:'Lejos del punto',fuera:'Fuera del punto confirmado','otro punto':'En el otro punto (posible cambio)','antes de reiniciar':'Antes de reiniciar','antes de corregir':'Antes de la corrección',impreciso:'GPS impreciso (más de 100 m)',vieja:'Posición vieja (más de 2 min)',anulado:'Anulado (volvió a EN RUTA)'};
 function ubFecha(f){const s=String(f||'');return s?s.slice(8,10)+'/'+s.slice(5,7)+(s.length>11?' '+s.slice(11,16):''):'—';}
 function ubEnRuta(){const s=new Set();pedidos.filter(p=>p.unitId&&!p.baja).forEach(p=>s.add(claveCli(p)));return s;}
 function pintarCntUbic(){const c=document.getElementById('cntUbic');if(c)c.textContent=UBC.t?(UBC.resumen?UBC.resumen.confirmados:0):'—';}
 function pintarHoraUbic(){
   const h=document.getElementById('ubHora'),b=document.getElementById('ubRefrescar');if(!h)return;
   if(b)b.disabled=!!UBC.cargando;
-  h.textContent=UBC.cargando?'Actualizando…':UBC.t?'Datos de las '+new Date(UBC.t).toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'}):'';
+  h.textContent=UBC.cargando?'Actualizando…':UBC.t?'Datos de las '+new Date(UBC.t).toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})+' · se actualiza sola cada minuto':'';
 }
 document.getElementById('ubRefrescar').addEventListener('click',()=>cargarUbicaciones(true));
 function ubProgreso(x){
@@ -4294,11 +4319,8 @@ function ubProgreso(x){
   return `<div class="ub-pg" title="${x.n||0} de ${m} registros en el mismo punto"><span>${Array.from({length:m},(_,i)=>`<i class="${i<n?'si':''}"></i>`).join('')}</span><em>${x.n||0}/${m}</em></div>`;
 }
 function ubEstado(x){return x.estado==='confirmada'?(x.corregida?'<span class="ub-est fj" title="Punto puesto por el supervisor">Corregida</span>':'<span class="ub-est ok">Confirmada</span>')+(x.cambio?'<span class="ub-rv" title="5 registros en otro punto">Posible cambio</span>':''):(x.n===UBC.meta-1?'<span class="ub-est casi">Falta 1</span>':'<span class="ub-est ap">Aprendiendo</span>');}
-function renderUbic(){
-  const cont=document.getElementById('ubicCont'),st=document.getElementById('statsUbic');if(!cont)return;
-  pintarHoraUbic();
-  if(UBC.sinServidor){st.innerHTML='';cont.innerHTML='<div class="ub-vacio"><b>Falta publicar el Apps Script v14.1</b><span>Cuando esté publicado, aquí aparecerá lo que Mi Ruta registre al marcar EN PROCESO.</span></div>';return;}
-  if(!UBC.t){st.innerHTML='';cont.innerHTML=`<div class="ub-vacio">${UBC.error?'<b>No se pudieron leer las ubicaciones</b><span>'+esc(UBC.error)+'</span>':'<span>Cargando ubicaciones…</span>'}</div>`;return;}
+function renderUbicStats(){
+  const st=document.getElementById('statsUbic');if(!st)return;
   const r=UBC.resumen||{confirmados:0,aprendiendo:0,porConfirmar:0,registros:0};
   const enRuta=ubEnRuta(),totRuta=enRuta.size,ubRuta=[...enRuta].filter(k=>UBC.mapa[k]&&UBC.mapa[k].estado==='confirmada').length;
   st.innerHTML=`
@@ -4307,6 +4329,14 @@ function renderUbic(){
    <div class="stat"><div class="v">${r.porConfirmar}</div><div class="l">A un registro de confirmarse</div></div>
    <div class="stat${r.cambios?' r':''}"><div class="v">${r.cambios||0}</div><div class="l">Posible cambio de dirección</div></div>
    <div class="stat"><div class="v">${totRuta?ubRuta+'<small> / '+totRuta+'</small>':'—'}</div><div class="l">Clientes de la ruta abierta ya ubicados</div></div>`;
+}
+function renderUbic(){
+  const cont=document.getElementById('ubicCont'),st=document.getElementById('statsUbic');if(!cont)return;
+  pintarHoraUbic();
+  if(UBC.sinServidor){st.innerHTML='';cont.innerHTML='<div class="ub-vacio"><b>Falta publicar el Apps Script v14.1</b><span>Cuando esté publicado, aquí aparecerá lo que Mi Ruta registre al marcar EN PROCESO.</span></div>';return;}
+  if(!UBC.t){st.innerHTML='';cont.innerHTML=`<div class="ub-vacio">${UBC.error?'<b>No se pudieron leer las ubicaciones</b><span>'+esc(UBC.error)+'</span>':'<span>Cargando ubicaciones…</span>'}</div>`;return;}
+  const r=UBC.resumen||{confirmados:0,aprendiendo:0,porConfirmar:0,registros:0};
+  renderUbicStats();
   cont.innerHTML=`
   <div class="ub-split">
     <section class="ub-card ub-lista">
