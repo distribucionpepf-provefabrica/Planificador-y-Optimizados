@@ -1022,6 +1022,11 @@ button.av-est:hover{outline:2px solid rgba(0,0,0,.15);}
 .tb-prog{font-size:11px;color:#5a6b7a;display:flex;align-items:center;gap:6px;}
 .tb-prog b{font-size:14px;color:var(--negro);}
 .tb-mini{flex:1;display:flex;gap:1px;height:5px;}
+.tb-sal{flex:none;display:inline-flex;align-items:center;gap:4px;border:1px solid #bbf7d0;background:#f0fdf4;color:#15803d;border-radius:99px;padding:1px 7px;font-weight:700;font-size:10.5px;line-height:1.4;font-family:inherit;white-space:nowrap;}
+button.tb-sal{cursor:pointer;}
+button.tb-sal i{font-style:normal;color:#8a96a3;font-size:9.5px;}
+button.tb-sal:hover{border-color:#fca5a5;background:#fef2f2;color:#b91c1c;}
+button.tb-sal:hover i{color:#b91c1c;}
 .tb-mini span{flex:1;border-radius:1px;}
 .tb-linea{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;font-size:11px;color:#3a4652;min-width:0;white-space:nowrap;}
 .tb-linea>span{min-width:0;overflow:hidden;text-overflow:ellipsis;}
@@ -1760,6 +1765,100 @@ header .user-badge button{white-space:nowrap}
   header .user-badge button{padding:8px 11px;font-size:13px}
 }
 }
+
+/* ===== planificador-42 · Ubicaciones de clientes (aprendidas por Mi Ruta) ===== */
+.gpsbadge.mr{background:#ede9fe;color:#5b21b6}
+.ub-tool{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:10px var(--gutter,24px) 12px}
+.ub-tool p{margin:0;max-width:780px;font-size:12.5px;line-height:1.45;color:#4d5966}
+.ub-tool p b{color:#172029}
+.ub-tool-a{display:flex;gap:10px;align-items:center}
+.ub-tool-a span{font-size:11.5px;color:#6b7280;font-variant-numeric:tabular-nums}
+.ub-tool-a button{height:32px;padding:0 14px;border:1px solid #d4d8dd;background:#fff;border-radius:8px;font-weight:700;font-size:12.5px;cursor:pointer;color:#172029}
+.ub-tool-a button:hover{border-color:#9ca3af}.ub-tool-a button:disabled{opacity:.55;cursor:wait}
+#statsUbic .stat .v small{font-size:.5em;color:#6b7280;font-weight:600}
+.ub-split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:14px;align-items:start}
+.ub-card{background:#fff;border:1px solid #e3e6ea;border-radius:12px;padding:14px 16px 16px;min-width:0}
+.ub-card>.ub-h{margin-bottom:12px}
+.ub-card h3{margin:0;font-size:14.5px;color:#172029;letter-spacing:-.2px}
+.ub-card .ub-h small{display:block;margin-top:2px;font-size:11.5px;color:#6b7280;line-height:1.35}
+.ub-det{position:sticky;top:12px}
+.ub-nada{padding:20px 6px;text-align:center;color:#6b7280;font-size:12.5px}
+.ub-mut{color:#6b7280;font-size:11.5px;font-weight:500}
+.ub-blk{display:block;font-size:11px}
+.ub-vacio{background:#fff;border:1px dashed #d4d8dd;border-radius:12px;padding:34px 16px;text-align:center;display:flex;flex-direction:column;gap:5px;color:#4d5966;font-size:13px}
+.ub-vacio b{color:#172029;font-size:14.5px}
+.ub-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.ub-seg{display:inline-flex;background:#f2f3f5;border-radius:9px;padding:3px;gap:2px;flex-wrap:wrap}
+.ub-seg button{border:0;background:transparent;height:28px;padding:0 11px;border-radius:7px;font-size:12px;font-weight:700;color:#5a6b7a;cursor:pointer}
+.ub-seg button.on{background:#fff;color:#1a1a1a;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.ub-bar input{height:32px;border:1px solid #d4d8dd;border-radius:8px;padding:0 10px;font-size:12.5px;min-width:180px;flex:1}
+.ub-tw{max-height:580px;overflow:auto;border:1px solid #eef0f2;border-radius:9px}
+.ub-tw2{max-height:300px}
+table.ub-tb{width:100%;border-collapse:collapse;font-size:12.5px}
+.ub-tb th{position:sticky;top:0;z-index:1;background:#f7f8f9;color:#56595b;font-size:11px;font-weight:700;text-align:left;padding:7px 10px;border-bottom:1px solid #e3e6ea;white-space:nowrap}
+.ub-tb td{padding:7px 10px;border-bottom:1px solid #f1f2f4;vertical-align:middle}
+.ub-tb .n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ub-cli tbody tr,.ub-pts tbody tr{cursor:pointer}
+.ub-cli tbody tr:hover td,.ub-pts tbody tr:hover td{background:#fafbfc}
+.ub-cli tbody tr.sel td{background:#fdf2f3}
+.ub-cli tbody tr.sel td:first-child{box-shadow:inset 3px 0 0 #e1001a}
+.ub-cli tbody tr:focus-visible{outline:2px solid #e1001a;outline-offset:-2px}
+.ub-cl b{display:block;font-weight:700;color:#1a1a1a}
+.ub-cl small{color:#6b7280;font-size:11.5px}
+.ub-ruta{display:inline-block;margin-left:6px;font-size:10px;font-weight:800;color:#1e40af;background:#dbeafe;border-radius:5px;padding:1px 6px;vertical-align:1px}
+.ub-est{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;border-radius:99px;padding:2px 9px;white-space:nowrap}
+.ub-est::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ub-est.ok{background:#e7f6ec;color:#15803d}.ub-est.ap{background:#fff4dc;color:#9a4a07}.ub-est.casi{background:#fde8ea;color:#b30015}
+.ub-pg{display:flex;align-items:center;gap:7px}
+.ub-pg span{display:flex;gap:3px}.ub-pg span i{width:12px;height:7px;border-radius:2px;background:#e5e7eb}
+.ub-pg span i.si{background:#16a34a}.ub-pg em{font-style:normal;font-size:11.5px;font-weight:700;color:#3a3a3a;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ub-dh{display:grid;gap:8px}
+.ub-dh h3{font-size:16px}
+.ub-dm{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ub-coord{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#f7f8f9;border:1px solid #eef0f2;border-radius:9px;padding:7px 10px;font-size:12px}
+.ub-coord span{color:#6b7280}.ub-coord b{font-variant-numeric:tabular-nums;color:#172029}
+.ub-coord button,.ub-coord a{margin-left:auto;border:1px solid #d4d8dd;background:#fff;color:#172029;border-radius:7px;font-size:11.5px;font-weight:700;padding:4px 9px;cursor:pointer;text-decoration:none}
+.ub-coord a{margin-left:0}
+.ub-nota{margin:0;font-size:12px;color:#4d5966}
+.ub-mapa{height:330px;border-radius:10px;overflow:hidden;border:1px solid #e3e6ea;background:#eef0f2;z-index:0;margin-top:12px}
+.ub-ley{display:flex;gap:14px;flex-wrap:wrap;margin-top:9px;font-size:11.5px;color:#4d5966}
+.ub-ley span{display:inline-flex;align-items:center;gap:6px}
+.ub-ley i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.ub-ley i.si{background:#e1001a;border:2px solid #fff;box-shadow:0 0 0 1px #e1001a}
+.ub-ley i.no{background:#e2e8f0;border:1.5px solid #94a3b8}
+.ub-est.fj{background:#eef2ff;color:#3730a3}
+.ub-dec{margin:0;font-size:11.5px;color:#6b7280}.ub-dec b{color:#3a3a3a}
+.ub-acc{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ub-acc button{border:1px solid #d4d8dd;background:#fff;color:#172029;border-radius:8px;font-size:12px;font-weight:700;height:30px;padding:0 12px;cursor:pointer}
+.ub-acc button:hover{border-color:#9ca3af}.ub-acc button:disabled{opacity:.55;cursor:wait}
+.ub-acc button.pri{background:#d97706;border-color:#d97706;color:#fff}
+.ub-acc button.no{color:#b30015}
+.ub-fijar{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ub-fijar input{height:30px;width:200px;border:1px solid #d4d8dd;border-radius:8px;padding:0 9px;font-size:12.5px;font-variant-numeric:tabular-nums}
+.ub-fijar input.mal{border-color:#b30015}
+.ub-fijar button.pri{background:#3730a3;border-color:#3730a3;color:#fff}
+.ub-mapa.fijando,.ub-mapa .fijando{cursor:crosshair}
+.ub-ley i.ot{background:#d97706;border:2px solid #fff;box-shadow:0 0 0 1px #d97706}
+.ub-rv{display:inline-block;margin-left:5px;font-size:10px;font-weight:800;color:#9a4a07;background:#fff4dc;border-radius:5px;padding:1px 6px;vertical-align:1px}
+.ub-aviso{display:grid;gap:3px;background:#fff8eb;border:1px solid #f5d9a8;border-left:4px solid #d97706;border-radius:9px;padding:9px 12px;font-size:12px;color:#5c3a0b}
+.ub-aviso b{font-size:12.5px;color:#7c2d12}.ub-aviso a{justify-self:start;font-weight:700;color:#9a4a07}
+.ub-ley i.cen{border:2px dashed #1f2937;background:rgba(31,41,55,.06)}
+.ub-sub{margin:12px 0 8px;font-size:12px;color:#4d5966}.ub-sub b{color:#172029}
+.ub-pts tr.no td{color:#6b7280}
+.ub-mo{font-size:11.5px;color:#9a3412}
+.ub-ok{font-size:11.5px;font-weight:700;color:#15803d}
+.ub-elige{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:46px 16px;color:#4d5966;font-size:12.5px;line-height:1.45}
+.ub-elige svg{width:30px;height:30px;color:#e1001a;margin-bottom:4px}
+.ub-elige b{font-size:14.5px;color:#172029}
+@media (max-width:1100px){.ub-split{grid-template-columns:1fr}.ub-det{position:static}}
+@media (max-width:700px){.ub-tb .ocm{display:none}.ub-pg span{display:none}.ub-tb{font-size:12px}.ub-tb td,.ub-tb th{padding:7px 7px}.ub-pts td:first-child,.ub-pts td:nth-child(2){white-space:nowrap}.ub-pts td small.ub-mut{display:none}.ub-mapa{height:270px}.ub-tool{padding:10px 16px}.ub-bar input{min-width:0;width:100%}}
+
+/* planificador-43 · área del usuario */
+.usr-area{display:inline-block;margin-left:5px;padding:2px 7px;border-radius:5px;font-size:10px;font-weight:700;white-space:nowrap;background:#f1f3f5;color:#5a6b7a}
+.usr-area.lo{background:#e8f1fb;color:#1d4f86}
+.usr-area.co{background:#f3ecfd;color:#6d28d9}
+.usr-area.nada{background:#fff;color:#8a939d;border:1px dashed #cfd5db}
+.usr-ind{display:inline-block;margin-left:5px;padding:2px 7px;border-radius:5px;font-size:10px;font-weight:700;background:#ebf8ef;color:#15803d;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -1804,7 +1903,7 @@ header .user-badge button{white-space:nowrap}
   </div>
 </header>
 
-<nav class="tabs" aria-label="Vistas del planificador"><div class="tab-list"><button type="button" class="tab active" data-view="armado"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm-8 4.5 8 5 8-5M12 21v-8.5m-4-7 8 5"/></svg><span>Armar ruta</span><span class="cnt" id="cntPed">0</span></button><button type="button" class="tab" data-view="gps"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h7a4 4 0 0 1 0 8H9a2 2 0 0 0 0 4h7"/></svg><span>Optimizar GPS</span><span class="cnt" id="cntGps">0</span></button><button type="button" class="tab" data-view="hoja"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg><span>Hoja de ruta</span><span class="cnt" id="cntAsig">0</span></button><button type="button" class="tab" data-view="mapa"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15m6-12v15"/></svg><span>Mapa</span><span class="cnt" id="cntMapa">0</span></button><button type="button" class="tab" data-view="avance"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M5 14l4-5 4 3 6-8m-4 0h4v4"/></svg><span>Avance de ruta</span><span class="cnt" id="cntAvance">—</span></button></div></nav>
+<nav class="tabs" aria-label="Vistas del planificador"><div class="tab-list"><button type="button" class="tab active" data-view="armado"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm-8 4.5 8 5 8-5M12 21v-8.5m-4-7 8 5"/></svg><span>Armar ruta</span><span class="cnt" id="cntPed">0</span></button><button type="button" class="tab" data-view="gps"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h7a4 4 0 0 1 0 8H9a2 2 0 0 0 0 4h7"/></svg><span>Optimizar GPS</span><span class="cnt" id="cntGps">0</span></button><button type="button" class="tab" data-view="hoja"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg><span>Hoja de ruta</span><span class="cnt" id="cntAsig">0</span></button><button type="button" class="tab" data-view="mapa"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15m6-12v15"/></svg><span>Mapa</span><span class="cnt" id="cntMapa">0</span></button><button type="button" class="tab" data-view="avance"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M5 14l4-5 4 3 6-8m-4 0h4v4"/></svg><span>Avance de ruta</span><span class="cnt" id="cntAvance">—</span></button><button type="button" class="tab" data-view="ubic"><svg class="ui-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg><span>Ubicaciones</span><span class="cnt" id="cntUbic">—</span></button></div></nav>
 
 <!-- ============ VISTA ARMADO ============ -->
 <div class="view active" id="view-armado">
@@ -1983,6 +2082,13 @@ header .user-badge button{white-space:nowrap}
 </div>
 
 <!-- ============ VISTA AVANCE DE RUTA ============ -->
+<div class="view" id="view-ubic"><div class="desk-head no-print"><div class="section-title"><span class="dispatch-location"><i aria-hidden="true"></i> Almacén Huachipa <em>/</em> Lima Este</span><h2>Ubicaciones de clientes</h2></div></div>
+  <div class="ub-tool no-print"><p>Mi Ruta registra la ubicación cuando el equipo marca <b>EN PROCESO</b> (en la puerta del cliente). Con <b>5 registros en el mismo punto</b> la ubicación queda confirmada y <b>Optimizar GPS</b> la usa sola en las paradas que no tienen coordenada.</p>
+    <div class="ub-tool-a"><span id="ubHora"></span><button type="button" id="ubRefrescar">Actualizar</button></div></div>
+  <div class="stats" id="statsUbic"></div>
+  <div class="wrap" id="ubicCont"></div>
+</div>
+
 <div class="view" id="view-avance"><div class="desk-head no-print"><div class="section-title"><span class="dispatch-location"><i aria-hidden="true"></i> Almacén Huachipa <em>/</em> Lima Este</span><h2>Avance de ruta</h2></div></div>
   <div class="av-tool" id="avTool"></div>
   <div id="avAvisos"></div>
@@ -2012,6 +2118,7 @@ header .user-badge button{white-space:nowrap}
           <label>Rol<select id="usrNuevoRol"><option value="visualizador">Visualizador (consulta · conductores)</option><option value="editor">Editor (arma y guarda)</option><option value="admin">Administrador (control total)</option></select></label>
           <label>Puesto<select id="usrNuevoPuesto"></select></label>
           <label><span>Celular<span class="usr-hint">· corporativo, lo ven los asesores en Seguimiento</span></span><input type="tel" id="usrNuevoCel" inputmode="tel" autocomplete="off" placeholder="987 654 321" maxlength="16"></label>
+          <label><span>Área<span class="usr-hint">· logística o comercial</span></span><select id="usrNuevoArea"></select></label>
           <label id="usrNuevoOtroL" hidden>¿Qué puesto?<input type="text" id="usrNuevoOtro" autocomplete="off" placeholder="Ej. ALMACENERO" maxlength="40"></label>
         </div>
         <div class="usr-acc"><label class="usr-chk"><input type="checkbox" id="usrNuevoActivo" checked> Activo</label><span class="usr-esp"></span>
@@ -3097,8 +3204,9 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   t.classList.add('active');
   document.getElementById('view-'+t.dataset.view).classList.add('active');
   if(t.dataset.view==='hoja')renderHoja();
-  if(t.dataset.view==='gps')renderGps();
-  if(t.dataset.view==='mapa')renderMapa();
+  if(t.dataset.view==='gps'){renderGps();cargarUbicaciones();}
+  if(t.dataset.view==='mapa'){renderMapa();cargarUbicaciones();}
+  if(t.dataset.view==='ubic'){renderUbic();cargarUbicaciones();}
   aplicarRestriccionesRol();
 }));
 
@@ -3267,7 +3375,7 @@ const NUBE_URL_KEY='prove_nube_url';
    "Configurar servidor" y ese valor manda sobre este. */
 /* Sello de version: sirve para saber, sin adivinar, que archivo esta corriendo
    realmente el navegador (GitHub Pages y el cache del movil suelen servir uno viejo). */
-const APP_VERSION='2026-11-16 · planificador-39';
+const APP_VERSION='2026-11-22 · planificador-43';
 const NUBE_URL_DEFECTO='https://script.google.com/macros/s/AKfycbzh72H0j_OxcQAltoltMq3TY8MYlzxYCgCyKor37VX1k7X1KAbsLZHLuamN3CntccwElA/exec';
 const SESION_KEY='prove_sesion';
 let sesion={usuario:'',clave:'',rol:'',nombre:''};
@@ -4124,6 +4232,228 @@ function cruzarCoords(){
     const hit=baseGPS[normCli(p.CLIENTES)];
     if(hit)gpsCoords[p.id]={lat:hit.lat,lng:hit.lng,fuente:'sheet'};
   });
+  completarMiRuta();                                   // v42: las que siguen sin coordenada, con lo aprendido por Mi Ruta
+}
+/* ===================== v42 · UBICACIÓN DE CADA CLIENTE (aprendida por Mi Ruta) =====================
+   Cuando el equipo marca EN PROCESO (está en la puerta del cliente), Mi Ruta manda la ubicación de ese
+   momento y el Apps Script v14.1 la guarda. Con 5 registros en el mismo punto (días distintos, a menos
+   de 100 m) esa es la ubicación del cliente (nombre normalizado + distrito).
+   · Optimizar GPS: las paradas SIN coordenada toman sola la ubicación confirmada (la base GPS de Sheets
+     y lo puesto a mano tienen prioridad). Después el orden se ajusta a mano como siempre.
+   · Pestaña "Ubicaciones": lo aprendido, cliente por cliente, con sus registros en el mapa. */
+const UBC={mapa:{},lista:[],resumen:null,meta:5,radio:100,t:0,cargando:null,sinServidor:false,error:'',filtro:'todos',q:'',sel:'',mapaL:null};
+function normDist(s){return String(s||'').trim().toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ');}
+function claveCli(p){return normCli(p.CLIENTES)+'|'+normDist(p.DISTRITO);}
+function ubcVista(v){const el=document.getElementById('view-'+v);return !!el&&el.classList.contains('active');}
+function ubcDe(p){const x=UBC.mapa[claveCli(p)];return x&&x.estado==='confirmada'?x:null;}
+/* solo llena las paradas que no tienen coordenada */
+function completarMiRuta(){
+  let n=0;
+  pedidos.filter(p=>p.unitId&&!p.baja&&!gpsCoords[p.id]).forEach(p=>{
+    const a=ubcDe(p);if(a){gpsCoords[p.id]={lat:a.lat,lng:a.lng,fuente:'miruta'};n++;}
+  });
+  return n;
+}
+function ubcAplicar(d){
+  UBC.lista=d.lista||[];UBC.resumen=d.resumen||null;UBC.meta=d.meta||5;UBC.radio=d.radio||100;UBC.t=Date.now();UBC.error='';
+  UBC.mapa={};UBC.lista.forEach(x=>{if(x.lat!=null&&isFinite(x.lat)&&isFinite(x.lng))UBC.mapa[x.clave]=x;});
+}
+function cargarUbicaciones(forzar){
+  if(UBC.sinServidor||!sesion||!sesion.usuario)return Promise.resolve(false);
+  if(!forzar&&UBC.t&&Date.now()-UBC.t<5*60e3)return Promise.resolve(true);
+  if(UBC.cargando)return UBC.cargando;
+  UBC.cargando=nubeAccionUsuario({accion:'ubicacionesClientes'}).then(d=>{
+    ubcAplicar(d);
+    const n=completarMiRuta();
+    if(n&&typeof rutaGeom!=='undefined')rutaGeom={};
+    if(ubcVista('gps'))renderGps();
+    if(ubcVista('mapa')&&n)renderMapa();
+    if(ubcVista('ubic'))renderUbic();
+    pintarCntUbic();
+    return true;
+  }).catch(e=>{
+    if(/desconocida/i.test(e.message))UBC.sinServidor=true;         // Apps Script anterior a la v14.1
+    UBC.error=e.message;if(ubcVista('ubic'))renderUbic();return false;
+  }).finally(()=>{UBC.cargando=null;pintarHoraUbic();});
+  return UBC.cargando;
+}
+
+/* ---------- pestaña Ubicaciones ---------- */
+const UBC_MOT={'mismo día':'Mismo día (ya contó uno)',lejos:'Lejos del punto',fuera:'Fuera del punto confirmado','otro punto':'En el otro punto (posible cambio)','antes de reiniciar':'Antes de reiniciar','antes de corregir':'Antes de la corrección',impreciso:'GPS impreciso (más de 100 m)',vieja:'Posición vieja (más de 2 min)'};
+function ubFecha(f){const s=String(f||'');return s?s.slice(8,10)+'/'+s.slice(5,7)+(s.length>11?' '+s.slice(11,16):''):'—';}
+function ubEnRuta(){const s=new Set();pedidos.filter(p=>p.unitId&&!p.baja).forEach(p=>s.add(claveCli(p)));return s;}
+function pintarCntUbic(){const c=document.getElementById('cntUbic');if(c)c.textContent=UBC.t?(UBC.resumen?UBC.resumen.confirmados:0):'—';}
+function pintarHoraUbic(){
+  const h=document.getElementById('ubHora'),b=document.getElementById('ubRefrescar');if(!h)return;
+  if(b)b.disabled=!!UBC.cargando;
+  h.textContent=UBC.cargando?'Actualizando…':UBC.t?'Datos de las '+new Date(UBC.t).toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'}):'';
+}
+document.getElementById('ubRefrescar').addEventListener('click',()=>cargarUbicaciones(true));
+function ubProgreso(x){
+  const m=UBC.meta,n=Math.min(x.n||0,m);
+  return `<div class="ub-pg" title="${x.n||0} de ${m} registros en el mismo punto"><span>${Array.from({length:m},(_,i)=>`<i class="${i<n?'si':''}"></i>`).join('')}</span><em>${x.n||0}/${m}</em></div>`;
+}
+function ubEstado(x){return x.estado==='confirmada'?(x.corregida?'<span class="ub-est fj" title="Punto puesto por el supervisor">Corregida</span>':'<span class="ub-est ok">Confirmada</span>')+(x.cambio?'<span class="ub-rv" title="5 registros en otro punto">Posible cambio</span>':''):(x.n===UBC.meta-1?'<span class="ub-est casi">Falta 1</span>':'<span class="ub-est ap">Aprendiendo</span>');}
+function renderUbic(){
+  const cont=document.getElementById('ubicCont'),st=document.getElementById('statsUbic');if(!cont)return;
+  pintarHoraUbic();
+  if(UBC.sinServidor){st.innerHTML='';cont.innerHTML='<div class="ub-vacio"><b>Falta publicar el Apps Script v14.1</b><span>Cuando esté publicado, aquí aparecerá lo que Mi Ruta registre al marcar EN PROCESO.</span></div>';return;}
+  if(!UBC.t){st.innerHTML='';cont.innerHTML=`<div class="ub-vacio">${UBC.error?'<b>No se pudieron leer las ubicaciones</b><span>'+esc(UBC.error)+'</span>':'<span>Cargando ubicaciones…</span>'}</div>`;return;}
+  const r=UBC.resumen||{confirmados:0,aprendiendo:0,porConfirmar:0,registros:0};
+  const enRuta=ubEnRuta(),totRuta=enRuta.size,ubRuta=[...enRuta].filter(k=>UBC.mapa[k]&&UBC.mapa[k].estado==='confirmada').length;
+  st.innerHTML=`
+   <div class="stat g"><div class="v">${r.confirmados}</div><div class="l">Clientes con ubicación confirmada</div></div>
+   <div class="stat"><div class="v">${r.aprendiendo}</div><div class="l">Aprendiendo (menos de ${UBC.meta} registros)</div></div>
+   <div class="stat"><div class="v">${r.porConfirmar}</div><div class="l">A un registro de confirmarse</div></div>
+   <div class="stat${r.cambios?' r':''}"><div class="v">${r.cambios||0}</div><div class="l">Posible cambio de dirección</div></div>
+   <div class="stat"><div class="v">${totRuta?ubRuta+'<small> / '+totRuta+'</small>':'—'}</div><div class="l">Clientes de la ruta abierta ya ubicados</div></div>`;
+  cont.innerHTML=`
+  <div class="ub-split">
+    <section class="ub-card ub-lista">
+      <div class="ub-h"><h3>Clientes</h3><small>Se confirma con ${UBC.meta} registros en días distintos, a menos de ${UBC.radio} m entre sí · ${r.registros} registros guardados</small></div>
+      <div class="ub-bar"><div class="ub-seg" id="ubSeg">${[['todos','Todos'],['confirmada','Confirmados'],['aprendiendo','Aprendiendo'],['cambio','Posible cambio'],['ruta','En la ruta abierta']].map(([k,t])=>`<button type="button" data-f="${k}" class="${UBC.filtro===k?'on':''}">${t}</button>`).join('')}</div>
+        <input id="ubQ" type="search" placeholder="Buscar cliente o distrito" value="${escAttr(UBC.q)}" autocomplete="off"></div>
+      <div id="ubTabla"></div>
+    </section>
+    <section class="ub-card ub-det" id="ubDet"></section>
+  </div>`;
+  cont.querySelectorAll('#ubSeg button').forEach(b=>b.onclick=()=>{UBC.filtro=b.dataset.f;cont.querySelectorAll('#ubSeg button').forEach(x=>x.classList.toggle('on',x===b));renderUbicTabla();});
+  const qi=cont.querySelector('#ubQ');qi.oninput=()=>{UBC.q=qi.value;clearTimeout(UBC.tq);UBC.tq=setTimeout(renderUbicTabla,180);};
+  renderUbicTabla();renderUbicDet();
+}
+function renderUbicTabla(){
+  const el=document.getElementById('ubTabla');if(!el)return;
+  const q=normCli(UBC.q),f=UBC.filtro,enRuta=ubEnRuta();
+  /* primero lo más cercano a confirmarse, luego por nombre */
+  const lista=UBC.lista.filter(x=>{
+    if(f==='confirmada'&&x.estado!=='confirmada')return false;
+    if(f==='aprendiendo'&&x.estado==='confirmada')return false;
+    if(f==='ruta'&&!enRuta.has(x.clave))return false;
+    if(f==='cambio'&&!x.cambio)return false;
+    if(q&&!normCli(x.cliente+' '+x.distrito).includes(q))return false;
+    return true;
+  }).sort((a,b)=>(b.cambio?1:0)-(a.cambio?1:0)||(b.n||0)-(a.n||0)||a.cliente.localeCompare(b.cliente));
+  if(!lista.length){
+    el.innerHTML=`<div class="ub-nada">${UBC.lista.length?(UBC.q?'Ningún cliente coincide con la búsqueda.':'Sin clientes con este filtro.'):'Aún no hay registros. Se crean cuando el equipo marca EN PROCESO en Mi Ruta.'}</div>`;
+    return;
+  }
+  el.innerHTML=`<div class="ub-tw"><table class="ub-tb ub-cli"><thead><tr><th>Cliente</th><th>Estado</th><th>Registros</th><th class="n ocm">Dispersión</th><th class="ocm">Último registro</th></tr></thead><tbody>${lista.slice(0,500).map(x=>
+    `<tr data-k="${escAttr(x.clave)}" class="${x.clave===UBC.sel?'sel':''}" tabindex="0">
+      <td class="ub-cl"><b>${esc(x.cliente)}</b><small>${esc(x.distrito)}${enRuta.has(x.clave)?'<span class="ub-ruta">en la ruta</span>':''}</small></td>
+      <td>${ubEstado(x)}</td><td>${ubProgreso(x)}</td>
+      <td class="n ocm">${x.radio!=null?'± '+x.radio+' m':'—'}</td>
+      <td class="ocm">${ubFecha(x.ultimo)}<small class="ub-mut ub-blk">${esc(x.ultimaPlaca||'')}</small></td></tr>`).join('')}</tbody></table></div>
+    ${lista.length>500?`<div class="ub-nada">Se muestran 500 de ${lista.length}. Usa el buscador.</div>`:''}`;
+  el.querySelectorAll('tr[data-k]').forEach(tr=>{
+    const ir=()=>ubElegir(tr.dataset.k);
+    tr.onclick=ir;tr.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();ir();}};
+  });
+}
+function ubElegir(k){
+  UBC.sel=k;
+  document.querySelectorAll('#ubTabla tr[data-k]').forEach(tr=>tr.classList.toggle('sel',tr.dataset.k===k));
+  renderUbicDet();
+  if(window.matchMedia('(max-width: 1100px)').matches){const d=document.getElementById('ubDet');if(d)d.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+function renderUbicDet(){
+  const el=document.getElementById('ubDet');if(!el)return;
+  if(UBC.mapaL){UBC.mapaL.remove();UBC.mapaL=null;}
+  const x=UBC.sel&&UBC.lista.find(y=>y.clave===UBC.sel);
+  if(!x){el.innerHTML='<div class="ub-elige"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg><b>Elige un cliente</b><span>Verás en el mapa cada registro de EN PROCESO, cuáles cuentan y la ubicación calculada.</span></div>';return;}
+  const pts=x.puntos||[],cuentan=pts.filter(p=>!p.motivo).length;
+  const coord=x.lat!=null?x.lat.toFixed(6)+', '+x.lng.toFixed(6):'';
+  el.innerHTML=`
+    <div class="ub-h ub-dh"><div><h3>${esc(x.cliente)}</h3><small>${esc(x.distrito)}</small></div>
+      <div class="ub-dm">${ubEstado(x)}${ubProgreso(x)}${x.radio!=null?`<span class="ub-mut">dispersión ± ${x.radio} m</span>`:''}</div>
+      ${coord?`<div class="ub-coord"><span>${x.estado==='confirmada'?'Ubicación del cliente':'Punto provisional'}</span><b>${coord}</b>
+        <button type="button" id="ubCopiar">Copiar</button><a href="https://www.google.com/maps?q=${x.lat},${x.lng}" target="_blank" rel="noopener">Google Maps</a></div>`:''}
+      ${x.cambio?`<div class="ub-aviso"><b>Posible cambio de dirección o sucursal</b><span>${x.cambio.n} registros en otro punto, a ${x.cambio.distancia>=1000?(x.cambio.distancia/1000).toFixed(1).replace('.',',')+' km':x.cambio.distancia+' m'}, desde el ${ubFecha(x.cambio.desde).slice(0,5)}. La ubicación usada no cambió: revisa si el cliente se mudó o es otra sucursal.</span>
+        <a href="https://www.google.com/maps?q=${x.cambio.lat},${x.cambio.lng}" target="_blank" rel="noopener">Ver el otro punto</a></div>`:''}
+      ${x.estado==='confirmada'?'<p class="ub-nota">Se usa sola en Optimizar GPS cuando la parada no tiene coordenada. Las visitas que caen en este punto ya no se guardan; solo las que caen fuera o con GPS dudoso.</p>'
+        :`<p class="ub-nota">Le ${UBC.meta-(x.n||0)===1?'falta 1 registro':'faltan '+(UBC.meta-(x.n||0))+' registros'} en el mismo punto para confirmarse. Mientras tanto no se usa en las rutas.</p>`}
+      ${x.decision?`<p class="ub-dec">${{reiniciar:'Reiniciada',corregir:'Corregida',otro:'Pasada al otro punto'}[x.decision.tipo]||'Decisión'} por <b>${esc(x.decision.usuario)}</b> el ${esc(ubFecha(x.decision.fecha))}</p>`:''}
+      ${sesion&&sesion.rol==='admin'?`<div class="ub-acc" id="ubAcc">
+        <button type="button" data-ub="corregir" title="Pones el punto correcto y queda confirmado desde ya">Corregir</button>
+        ${x.cambio?'<button type="button" class="pri" data-ub="otro" title="La ubicación pasa al punto del aviso">Usar el otro punto</button>':''}
+        <button type="button" class="no" data-ub="reiniciar" title="Olvida lo aprendido y vuelve a 0/5">Reiniciar</button></div>`:''}
+    </div>
+    <div class="ub-mapa" id="ubMapa"></div>
+    <div class="ub-ley"><span><i class="si"></i>Cuenta</span>${x.cambio?'<span><i class="ot"></i>Otro punto</span>':''}${pts.some(p=>p.motivo)?'<span><i class="no"></i>No cuenta</span>':''}${x.lat!=null?`<span><i class="cen"></i>${x.estado==='confirmada'?'Ubicación':'Punto provisional'} y radio de ${UBC.radio} m</span>`:''}</div>
+    <div class="ub-sub"><b>${x.registros} registro${x.registros===1?'':'s'}</b> · ${cuentan} cuenta${cuentan===1?'':'n'}${x.registros>pts.length?' · se muestran los últimos '+pts.length:''}</div>
+    <div class="ub-tw ub-tw2"><table class="ub-tb ub-pts"><thead><tr><th>Fecha</th><th>Camión</th><th class="n">Precisión</th><th class="n ocm">Antigüedad</th><th>Resultado</th></tr></thead><tbody>${pts.map((o,i)=>
+      `<tr data-i="${i}" class="${o.motivo?'no':''}"><td>${ubFecha(o.fecha)}</td><td>${esc(o.placa||'—')}<small class="ub-mut ub-blk">${esc(o.usuario||'')}</small></td>
+        <td class="n">${o.prec!=null?'± '+o.prec+' m':'—'}</td><td class="n ocm">${o.edad!=null?o.edad+' s':'—'}</td>
+        <td>${o.motivo?`<span class="ub-mo">${esc(UBC_MOT[o.motivo]||o.motivo)}</span>`:'<span class="ub-ok">Cuenta</span>'}</td></tr>`).join('')}</tbody></table></div>`;
+  const cp=el.querySelector('#ubCopiar');
+  if(cp)cp.onclick=()=>{try{navigator.clipboard.writeText(coord).then(()=>{cp.textContent='Copiado';setTimeout(()=>cp.textContent='Copiar',1500);});}catch(e){}};
+  ubPintarMapa(x,pts);
+  ubAcciones(el,x);
+  el.querySelectorAll('.ub-pts tr[data-i]').forEach(tr=>tr.onclick=()=>{const o=pts[+tr.dataset.i];if(UBC.mapaL&&o){UBC.mapaL.setView([o.lat,o.lng],18);const m=UBC.marcas[+tr.dataset.i];if(m)m.openPopup();}});
+}
+/* acciones del supervisor: no cambian las rutas ya armadas, solo lo que se usará desde ahora */
+function ubAcciones(el,x){
+  const box=el.querySelector('#ubAcc');if(!box)return;
+  const enviar=async(btn,decision,lat,lng)=>{
+    btn.disabled=true;
+    try{
+      const d=await nubeAccionUsuario({accion:'ubicacionDecidir',llave:x.clave,decision,lat,lng,cliente:x.cliente,distrito:x.distrito});
+      ubcAplicar(d);pintarCntUbic();renderUbic();
+    }catch(e){btn.disabled=false;alert('No se guardó: '+e.message);}
+  };
+  box.querySelectorAll('[data-ub]').forEach(btn=>btn.onclick=()=>{
+    const a=btn.dataset.ub;
+    if(a==='reiniciar'){
+      if(confirm('¿Reiniciar la ubicación de '+x.cliente+'?\n\nSe olvida lo aprendido y vuelve a aprender desde 0 de '+UBC.meta+' con las próximas visitas.'))enviar(btn,'reiniciar');
+      return;
+    }
+    if(a==='otro'){
+      if(confirm('¿Usar el otro punto para '+x.cliente+'?\n\nLa ubicación pasa a '+x.cambio.lat+', '+x.cambio.lng+' (a '+x.cambio.distancia+' m de la actual).'))enviar(btn,'otro',x.cambio.lat,x.cambio.lng);
+      return;
+    }
+    /* corregir: escribir la coordenada o tocar el mapa */
+    box.innerHTML=`<span class="ub-fijar"><input id="ubCoord" placeholder="-12.0464, -77.0428" value="${x.lat!=null?x.lat+', '+x.lng:''}" inputmode="decimal"><button type="button" class="pri" id="ubOk">Guardar</button><button type="button" id="ubNo">Cancelar</button></span><small class="ub-mut ub-blk">Escribe o pega la coordenada, o toca el mapa en el lugar correcto</small>`;
+    const inp=box.querySelector('#ubCoord');inp.focus();inp.select();
+    let tmp=null;
+    if(UBC.mapaL){UBC.mapaL.getContainer().classList.add('fijando');UBC.mapaL.on('click',e=>{
+      inp.value=e.latlng.lat.toFixed(6)+', '+e.latlng.lng.toFixed(6);
+      if(tmp)tmp.setLatLng(e.latlng);else tmp=L.circleMarker(e.latlng,{radius:10,color:'#3730a3',weight:3,fillColor:'#3730a3',fillOpacity:.3}).addTo(UBC.mapaL);
+    });}
+    box.querySelector('#ubNo').onclick=()=>renderUbicDet();
+    box.querySelector('#ubOk').onclick=()=>{
+      const m=inp.value.match(/(-?\d+(?:[.,]\d+)?)\s*[,; ]\s*(-?\d+(?:[.,]\d+)?)/);
+      if(!m){inp.classList.add('mal');return;}
+      enviar(box.querySelector('#ubOk'),'corregir',parseFloat(m[1].replace(',','.')),parseFloat(m[2].replace(',','.')));
+    };
+  });
+}
+function ubPintarMapa(x,pts){
+  const el=document.getElementById('ubMapa');if(!el)return;
+  if(!leafletOk()){el.innerHTML='<div class="ub-nada">No cargó el mapa (sin conexión con el servidor de mapas).</div>';return;}
+  const m=L.map(el,{zoomControl:true,scrollWheelZoom:false});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(m);
+  const b=[];UBC.marcas=[];
+  if(x.lat!=null){
+    L.circle([x.lat,x.lng],{radius:UBC.radio,color:'#1f2937',weight:1.5,dashArray:'5 5',fillColor:'#1f2937',fillOpacity:.05,interactive:false}).addTo(m);
+    b.push([x.lat,x.lng]);
+  }
+  if(x.cambio){
+    L.circle([x.cambio.lat,x.cambio.lng],{radius:UBC.radio,color:'#d97706',weight:1.5,dashArray:'5 5',fillColor:'#d97706',fillOpacity:.06,interactive:false}).addTo(m);
+    L.circleMarker([x.cambio.lat,x.cambio.lng],{radius:10,color:'#d97706',weight:3,fillColor:'#ffffff',fillOpacity:.35}).addTo(m)
+      .bindPopup('<b>Otro punto (posible cambio)</b><br>'+x.cambio.n+' registros · '+x.cambio.lat+', '+x.cambio.lng);
+    b.push([x.cambio.lat,x.cambio.lng]);
+  }
+  /* primero los que no cuentan (quedan debajo) */
+  pts.map((o,i)=>({o,i})).sort((a,c)=>(a.o.motivo?0:1)-(c.o.motivo?0:1)).forEach(({o,i})=>{
+    const si=!o.motivo,ot=o.motivo==='otro punto';
+    const cm=L.circleMarker([o.lat,o.lng],{radius:si||ot?7:5,color:si||ot?'#ffffff':'#94a3b8',weight:si||ot?2:1.5,fillColor:si?'#e1001a':ot?'#d97706':'#e2e8f0',fillOpacity:si||ot?.95:.9}).addTo(m);
+    cm.bindPopup(`<b>${esc(ubFecha(o.fecha))}</b> · ${esc(o.placa||'')}<br>`+(o.prec!=null?'Precisión ± '+o.prec+' m':'Sin dato de precisión')+(o.edad!=null?' · '+o.edad+' s':'')+
+      '<br>'+(o.motivo?'<span style="color:#9a3412">'+esc(UBC_MOT[o.motivo]||o.motivo)+'</span>':'<b style="color:#15803d">Cuenta</b>'));
+    UBC.marcas[i]=cm;b.push([o.lat,o.lng]);
+  });
+  if(x.lat!=null)L.circleMarker([x.lat,x.lng],{radius:10,color:'#1f2937',weight:3,fillColor:'#ffffff',fillOpacity:.35}).addTo(m)
+    .bindPopup(`<b>${x.estado==='confirmada'?'Ubicación del cliente':'Punto provisional'}</b><br>${x.lat}, ${x.lng}`);
+  if(b.length)m.fitBounds(b,{padding:[36,36],maxZoom:18});else m.setView([ORIGEN.lat,ORIGEN.lng],11);
+  UBC.mapaL=m;setTimeout(()=>{try{m.invalidateSize();}catch(e){}},80);
 }
 
 function haversine(a,b){const R=6371,toR=x=>x*Math.PI/180;
@@ -4265,6 +4595,7 @@ document.getElementById('gpsOptimizar').addEventListener('click',async()=>{
 function renderGps(){
   const cont=document.getElementById('gpsCont');
   if(!cont)return;
+  completarMiRuta();
   const unidsConPed=unidades.filter(u=>pedidos.some(p=>p.unitId===u.id&&!p.baja));
   const asign=pedidos.filter(p=>p.unitId&&!p.baja);
   const conCoord=asign.filter(p=>gpsCoords[p.id]).length;
@@ -4289,7 +4620,10 @@ function renderGps(){
     const stops=peds.map((p,i)=>{
       const gc=gpsCoords[p.id];
       let badge,coordTxt='';
-      if(gc){badge=`<span class="gpsbadge ${gc.fuente==='manual'?'manual':'ok'}">${gc.fuente==='manual'?'manual':'GPS'}</span>`;coordTxt=gc.lat.toFixed(5)+', '+gc.lng.toFixed(5);}
+      if(gc){badge=gc.fuente==='manual'?'<span class="gpsbadge manual">manual</span>'
+          :gc.fuente==='miruta'?'<span class="gpsbadge mr" title="Ubicación confirmada con 5 registros de Mi Ruta">Mi Ruta ✓</span>'
+          :'<span class="gpsbadge ok">GPS</span>';
+        coordTxt=gc.lat.toFixed(5)+', '+gc.lng.toFixed(5);}
       else badge=`<span class="gpsbadge fail" data-coordedit="${p.id}">sin GPS ✎</span>`;
       const leg=(u._legs&&u._legs[p.id]!=null)?`<span class="legkm">${u._legs[p.id]} min</span>`:'';
       return `<div class="stop${puedeReordenar?'':' no-drag'}"${puedeReordenar?' draggable="true"':''} data-pid="${p.id}" data-unit="${u.id}">
@@ -4392,6 +4726,7 @@ async function rutaPorCalles(puntos,cerrada){
 function renderMapa(){
   if(!document.getElementById('view-mapa').classList.contains('active'))return;
   if(!initMapa())return;
+  completarMiRuta();
   setTimeout(()=>mapa.invalidateSize(),60);
   mapaLayers.forEach(l=>mapa.removeLayer(l));mapaLayers=[];
 
@@ -4702,6 +5037,7 @@ function aplicarSesion(){
   // botón usuarios solo para admin
   document.getElementById('btnUsuarios').style.display=sesion.rol==='admin'?'inline-block':'none';
   document.getElementById('loginOverlay').classList.add('oculto');
+  setTimeout(()=>cargarUbicaciones(),2500);         // v42: ubicaciones aprendidas por Mi Ruta
 }
 function guardarSesionLocal(){
   try{localStorage.setItem(SESION_KEY,JSON.stringify(sesion));}catch(e){}
@@ -4809,7 +5145,22 @@ function generarClave(){
   return a+'-'+String(1000+n[2]%9000)+'-'+b;
 }
 /* ===== PUESTO (v25): se elige al crear o editar; chofer y auxiliar salen en las listas del equipo ===== */
-const PUESTOS=['CHOFER','AUXILIAR DE REPARTO','SUPERVISOR','LIDER','VENTAS','FACTURADOR'];
+const PUESTOS=['CHOFER','AUXILIAR DE REPARTO','SUPERVISOR','LIDER','VENTAS','FACTURADOR','SENIOR LOGÍSTICO','ANALISTA'];
+/* ===== ÁREA (planificador-43): LOGÍSTICA o COMERCIAL. Con LOGÍSTICA y puesto de líder, supervisor,
+   facturador, senior logístico o analista, la persona ve la pestaña Indicadores de Seguimiento ===== */
+const AREAS=['LOGÍSTICA','COMERCIAL'];
+const sinTildeA=t=>String(t||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+function opcionesArea(actual){const a=String(actual||'');return '<option value="">— sin área —</option>'+AREAS.map(x=>`<option value="${escA2(x)}"${x===a?' selected':''}>${esc(tituloP(x))}</option>`).join('');}
+function areaSugerida(puesto){const p=sinTildeA(puesto);if(!p)return '';return /VENTA|ASESOR|COMERC/.test(p)?'COMERCIAL':'LOGÍSTICA';}
+function veIndicadores(u){if(u.rol==='admin')return true;const p=sinTildeA(u.puesto);return sinTildeA(u.area)==='LOGISTICA'&&!/CHOF|CONDUC|AUXIL|AYUD/.test(p)&&/LIDER|SUPERVIS|FACTURAD|SENIOR|ANALISTA/.test(p);}
+function areaChip(u){
+  if(u.area===undefined)return '';                    // Apps Script anterior a la v14.2
+  const a=String(u.area||'');
+  return `<span class="usr-area ${a?(sinTildeA(a)==='LOGISTICA'?'lo':'co'):'nada'}">${a?esc(tituloP(a)):'Sin área'}</span>${veIndicadores(u)?'<span class="usr-ind" title="Ve la pestaña Indicadores en Seguimiento">Indicadores</span>':''}`;
+}
+/* al elegir el puesto se propone el área (si todavía no tiene) */
+function enlazarArea(selPuesto,selArea){const sp=document.getElementById(selPuesto),sa=document.getElementById(selArea);if(!sp||!sa)return;
+  const antes=sp.onchange;sp.onchange=e=>{if(antes)antes(e);if(!sa.value){const g=areaSugerida(sp.value==='__OTRO__'?'':sp.value);if(g)sa.value=g;}};}
 const esAuxP=p=>!!p&&/AUXIL|AYUD/i.test(p.puesto||'');
 function ptoTxt(p){p=String(p||'').trim();return p?tituloP(p):'';}
 function ptoBadge(p){const t=String(p||'');if(!t)return '<span class="usr-pto nada" title="Sin puesto: no aparece en las listas de chofer y auxiliar">Sin puesto</span>';
@@ -4877,7 +5228,7 @@ function pintarUsuarios(){
     const fila=`<tr data-u="${escA2(u.usuario)}"${usrEditando===u.usuario?' class="editando"':''}>
       <td><b>${esc(u.usuario)}</b>${esYo(u.usuario)?' <small style="color:#7a8a99">(tú)</small>':''}</td>
       <td><span class="usr-nom">${esc(u.nombre||'')}</span>${celLinea(u)}</td>
-      <td>${u.puesto===undefined?'<span style="color:#9aa">—</span>':ptoBadge(u.puesto)}</td>
+      <td>${u.puesto===undefined?'<span style="color:#9aa">—</span>':ptoBadge(u.puesto)}${areaChip(u)}</td>
       <td><span class="usr-rol ${esc(u.rol)}">${rolTxt(u.rol)}</span></td>
       <td>${u.activo?'<span style="color:var(--verde)">Activo</span>':'<span style="color:var(--rojo)">Inactivo</span>'}</td>
       <td>${u.debil===true?'<span class="usr-debil" title="Contraseña corta, sin números o fácil de adivinar">⚠ Débil</span>':u.debil===false?'<span class="usr-segura">🔒 Segura</span>':'<span style="color:#9aa">—</span>'}</td>
@@ -4887,6 +5238,7 @@ function pintarUsuarios(){
         <label>Nombre<input type="text" id="edNombre" value="${escA2(u.nombre||'')}"></label>
         <label>Puesto<select id="edPuesto">${opcionesPuesto(u.puesto)}</select><input type="text" id="edOtro" placeholder="¿Qué puesto?" maxlength="40" hidden style="margin-top:4px"></label>
         <label>Celular<input type="tel" id="edCel" inputmode="tel" autocomplete="off" placeholder="987 654 321" maxlength="16" value="${escA2(celFmt(u.cel||''))}"></label>
+        ${u.area===undefined?'':`<label>Área<select id="edArea">${opcionesArea(u.area)}</select></label>`}
         <label>Rol<select id="edRol"><option value="visualizador"${u.rol==='visualizador'?' selected':''}>Visualizador</option><option value="editor"${u.rol==='editor'?' selected':''}>Editor</option><option value="admin"${u.rol==='admin'?' selected':''}>Administrador</option></select></label>
         <label>Nueva contraseña<span class="usr-clave"><input type="text" id="edClave" placeholder="vacío = no cambiar" autocomplete="off"><button type="button" class="usr-dado" id="edDado" title="Generar una segura">🎲</button></span></label></div>
       <div class="acc"><label class="usr-chk"><input type="checkbox" id="edActivo"${u.activo?' checked':''}> Activo</label><span class="usr-esp"></span>
@@ -4903,7 +5255,7 @@ function pintarUsuarios(){
   const ed=document.getElementById('edGuardar');
   if(ed){
     const u=usrLista.find(x=>x.usuario===usrEditando);
-    enlazarOtro('edPuesto','edOtro');enlazarCel('edCel');
+    enlazarOtro('edPuesto','edOtro');enlazarCel('edCel');enlazarArea('edPuesto','edArea');
     document.getElementById('edDado').onclick=()=>{const i=document.getElementById('edClave');i.value=claveSegura(u.usuario);i.select();};
     document.getElementById('edCancelar').onclick=()=>{usrEditando='';pintarUsuarios();};
     ed.onclick=async()=>{
@@ -4912,6 +5264,7 @@ function pintarUsuarios(){
       const cel=leerCel(document.getElementById('edCel').value);
       if(cel&&!celValido(cel)){usrMsg('El celular de '+u.usuario+' debe tener 9 dígitos y empezar con 9 (ej. 987 654 321).','err');document.getElementById('edCel').focus();return;}
       if(cel!==(u.cel||''))cambios.cel=cel;
+      const ea=document.getElementById('edArea');if(ea&&ea.value!==(u.area||''))cambios.area=ea.value;
       const clave=document.getElementById('edClave').value;
       if(clave){const m=motivoClaveDebil(u.usuario,clave);if(m){usrMsg('Contraseña insegura: '+m+'. Usa 🎲 para generar una segura.','err');return;}cambios.clave=clave;}
       ed.disabled=true;ed.textContent='Guardando…';
@@ -4972,7 +5325,7 @@ document.getElementById('usrSoloDeb').addEventListener('click',()=>{usrSoloDeb=!
 document.getElementById('usrRenovar').addEventListener('click',renovarDebiles);
 function abrirNuevo(abrir){
   const c=document.getElementById('usrNuevoCaja');c.hidden=!abrir;
-  if(abrir){document.getElementById('usrNuevoPuesto').innerHTML=opcionesPuesto('');document.getElementById('usrNuevoCel').value='';document.getElementById('usrNuevoOtroL').hidden=true;document.getElementById('usrNuevoOtro').value='';
+  if(abrir){document.getElementById('usrNuevoPuesto').innerHTML=opcionesPuesto('');document.getElementById('usrNuevoArea').innerHTML=opcionesArea('');document.getElementById('usrNuevoCel').value='';document.getElementById('usrNuevoOtroL').hidden=true;document.getElementById('usrNuevoOtro').value='';
     ['usrNuevoUsuario','usrNuevoNombre','usrNuevaClave'].forEach(id=>document.getElementById(id).value='');document.getElementById('usrNuevoRol').value='visualizador';document.getElementById('usrNuevoActivo').checked=true;document.getElementById('usrNuevoUsuario').focus();}
 }
 document.getElementById('usrNuevoBtn').addEventListener('click',()=>abrirNuevo(document.getElementById('usrNuevoCaja').hidden));
@@ -4981,7 +5334,7 @@ document.getElementById('usrNuevoCancelar').addEventListener('click',()=>abrirNu
 function leerPuesto(selId,otroId){const v=document.getElementById(selId).value;if(v==='__OTRO__'){const t=document.getElementById(otroId).value.trim().toUpperCase();return t||null;}return v||null;}
 function enlazarOtro(selId,otroId){const sl=document.getElementById(selId),ot=document.getElementById(otroId),caja=ot.closest('label')&&ot.closest('label').id?ot.closest('label'):ot;
   sl.onchange=()=>{caja.hidden=sl.value!=='__OTRO__';if(!caja.hidden)ot.focus();};}
-enlazarOtro('usrNuevoPuesto','usrNuevoOtro');enlazarCel('usrNuevoCel');
+enlazarOtro('usrNuevoPuesto','usrNuevoOtro');enlazarCel('usrNuevoCel');enlazarArea('usrNuevoPuesto','usrNuevoArea');
 /* el personal nuevo o editado aparece al tiro en las listas de chofer y auxiliar */
 function refrescarPersonal(){try{personalListo=false;personalError='';cargarPersonal(true);}catch(e){}}
 document.getElementById('usrGenClave').addEventListener('click',()=>{const i=document.getElementById('usrNuevaClave');i.value=claveSegura(document.getElementById('usrNuevoUsuario').value.trim());i.select();});
@@ -4995,6 +5348,7 @@ document.getElementById('usrGuardar').addEventListener('click',async()=>{
     puesto:leerPuesto('usrNuevoPuesto','usrNuevoOtro'),
     cel:leerCel(document.getElementById('usrNuevoCel').value)
   };
+  const na=document.getElementById('usrNuevoArea').value;if(na)nuevo.area=na;
   if(!nuevo.usuario){usrMsg('Indica el nombre de usuario.','err');return;}
   if(usrLista.some(u=>u.usuario.toLowerCase()===nuevo.usuario.toLowerCase())){usrMsg('"'+nuevo.usuario+'" ya existe: usa Editar en su fila.','err');return;}
   if(nuevo.puesto===null){usrMsg('Elige el puesto: con Chofer o Auxiliar de reparto aparece en las listas al armar cada camión.','err');return;}
@@ -6310,6 +6664,7 @@ if (typeof module !== 'undefined') module.exports = IA;
     return `<span class="tb-rh ${cls}" title="${escAttr('Restricción horaria '+txt+' · '+tip+' (solo lo ves tú)')}">⏱${esc(txt)}${et?' '+et:''}</span>`;
   }
   let avEstados={}, avProg='', avUlt=0, avErr='', avCargando=false, avAbiertas=new Set(), avEdit=null, avInc=[];
+  let avSal={};   // v43: salida del almacén de cada camión (placa sin guiones → {hora,ts,usuario,nombre})
   /* piloto de fotos (Apps Script v13.2): qué placas usan la foto de la guía. null = servidor anterior (todas) */
   let avFotos=null;
   /* novedades que registra el reparto en Mi Ruta (Apps Script v12.1) */
@@ -6607,7 +6962,7 @@ if (typeof module !== 'undefined') module.exports = IA;
     if(!prog||!pedidos.length){avPintar();return;}
     if(avCargando||!sesion.usuario)return;
     avCargando=true;
-    if(prog!==avProg){avEstados={};avInc=[];avProg=prog;avAbiertas.clear();}
+    if(prog!==avProg){avEstados={};avInc=[];avSal={};avProg=prog;avAbiertas.clear();}
     if(!silencioso)avPintarTool('Consultando…');
     try{
       const r=await pedirNube({accion:'estadoListar',prog});
@@ -6618,7 +6973,7 @@ if (typeof module !== 'undefined') module.exports = IA;
           :e;
       }else{
         const m={};(r.estados||[]).forEach(x=>{m[x.clave]=x;});
-        if(prog===avProg){avEstados=m;avInc=r.incidencias||[];avErr='';avUlt=Date.now();}
+        if(prog===avProg){avEstados=m;avInc=r.incidencias||[];avSal=(r.salidas&&r.salidas[prog])||{};avErr='';avUlt=Date.now();}
         if(r.fotos)avFotos=r.fotos;
       }
     }catch(e){avErr='No se pudo consultar: '+e.message;}
@@ -6827,7 +7182,7 @@ if (typeof module !== 'undefined') module.exports = IA;
       html+=`<div class="tb-row${C.ahora?' vivo':''}${algun?'':' apagada'}" data-tbrow="${u.id}">
         <div class="tb-cab">
           <button class="tb-placa" data-tbplaca="${escAttr(u.placa||'')}" title="Ver solo este camión"><span class="av-ruta">${esc(u.ruta||'·')}</span><span><b>${esc(u.placa||'Sin placa')}</b>${avFotos&&avFotos.modo!=='todos'&&fotoActiva(u)?'<span class="tb-piloto" title="Este camión está en el piloto de fotos">Piloto 📷</span>':''}<small>${esc(tit(u.personal||''))}</small></span></button>
-          <div class="tb-prog"><b>${C.pct}%</b> ${C.hechas}/${C.filas.length}<div class="tb-mini">${C.filas.map(f=>`<span style="background:${AV_EST[f.est].c}"></span>`).join('')}</div></div>
+          <div class="tb-prog"><b>${C.pct}%</b> ${C.hechas}/${C.filas.length}<div class="tb-mini">${C.filas.map(f=>`<span style="background:${AV_EST[f.est].c}"></span>`).join('')}</div>${salChip(u)}</div>
           <div class="tb-linea">${linea}${ord}${esAdmin()?`<button class="tb-ord" data-avord="${u.id}" title="Editar orden de visita (solo admin)" aria-label="Editar orden de visita de ${escAttr(u.placa||'')}">✏️</button>`:''}</div>
         </div>${tiles}${extra}</div>`;
     });
@@ -6840,6 +7195,23 @@ if (typeof module !== 'undefined') module.exports = IA;
     const pie=filtro?`<div class="tb-pie">${coinc} factura(s) coinciden con el filtro · lo demás queda atenuado para no perder el orden</div>`
       :`<div class="tb-pie">${esAdmin()&&(rhCuenta.ok+rhCuenta.tarde+rhCuenta.pend)?`<span class="tb-rh-res">⏱ Restricciones horarias: <b>${rhCuenta.ok}</b> a tiempo · <b class="${rhCuenta.tarde?'mal':''}">${rhCuenta.tarde}</b> tarde · <b>${rhCuenta.pend}</b> por llegar</span> · `:''}Toca un cliente para ver sus facturas · la columna es el orden de visita del chofer (o el programado si aún no lo ordena)</div>`;
     return html+pie;
+  }
+  /* v43: hora en que el camión salió del almacén (la marca el equipo en Mi Ruta). Solo el admin la quita. */
+  function salChip(u){
+    const sl=avSal[normPl(u.placa)];if(!sl)return '';
+    const h=hm(sl.hora),quien=tit(String(sl.nombre||sl.usuario||'').split(' ')[0]);
+    return esAdmin()
+      ?`<button class="tb-sal" data-avsal="${escAttr(u.placa||'')}" title="Salió del almacén a las ${escAttr(h)} · marcó ${escAttr(quien)}. Toca para quitarla si fue un error.">⇥ ${esc(h)}<i aria-hidden="true">✕</i></button>`
+      :`<span class="tb-sal" title="Salió del almacén a las ${escAttr(h)} · marcó ${escAttr(quien)}">⇥ ${esc(h)}</span>`;
+  }
+  async function quitarSalida(placa){
+    const sl=avSal[normPl(placa)];if(!sl||!esAdmin())return;
+    if(!confirm('¿Quitar la salida del almacén de '+placa+' ('+hm(sl.hora)+')?\n\nHazlo solo si la marcaron por error. El equipo podrá marcarla otra vez mientras no haya llegado a su primer cliente.'))return;
+    try{
+      const r=await pedirNube({accion:'salidaAlmacen',prog:progClave(),placa,deshacer:true});
+      if(!r||!r.ok)throw new Error((r&&r.error)||'respuesta inválida');
+      delete avSal[normPl(placa)];avPintar();avCargar(true);
+    }catch(e){alert('No se pudo quitar la salida: '+e.message);}
   }
   function mosaico(C,s,i,ok){
     const p0=s.peds[0];
@@ -6960,6 +7332,7 @@ if (typeof module !== 'undefined') module.exports = IA;
     cont.querySelectorAll('[data-aved]').forEach(b=>b.onclick=()=>abrirEdicion(+b.dataset.aved));
     cont.querySelectorAll('[data-avfoto]').forEach(b=>b.onclick=()=>{const f=todasLasFilas(D).find(x=>String(x.p.id)===b.dataset.avfoto);if(f)gAbrir(fotosLista([f]),0,tit(f.p.CLIENTES));});
     cont.querySelectorAll('[data-avord]').forEach(b=>b.onclick=ev=>{ev.stopPropagation();abrirOrden(+b.dataset.avord);});
+    cont.querySelectorAll('[data-avsal]').forEach(b=>b.onclick=ev=>{ev.stopPropagation();quitarSalida(b.dataset.avsal);});
     const pl=document.getElementById('tbPlaca');if(pl)pl.onchange=()=>{avF.placa=pl.value;avPintar();};
     const zo=document.getElementById('tbZona');if(zo)zo.onchange=()=>{avF.zona=zo.value;avPintar();};
     const q=document.getElementById('tbBusca');
